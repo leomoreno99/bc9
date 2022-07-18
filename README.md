@@ -10,3 +10,4 @@ bootcamp 9
 - Cristian Millan
 - Damian Leiva
 - Gino Gutiérrez
+- Guillermo Gavotti
