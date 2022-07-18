@@ -12,3 +12,4 @@ bootcamp 9
 - Gino Gutiérrez
 - Guillermo Gavotti
 - Leonel Moreno
+- Matias Zalazar
