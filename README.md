@@ -14,3 +14,4 @@ bootcamp 9
 - Leonel Moreno
 - Matias Zalazar
 - Nicolas Figueroa
+- juan flores
