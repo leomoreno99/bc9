@@ -5,4 +5,4 @@ bootcamp 9
 - Lucas Gonzalez
 - Andrea Holland
 - Agustin Avila
-
+- Alexis Hernandez
