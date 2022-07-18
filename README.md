@@ -15,3 +15,4 @@ bootcamp 9
 - Matias Zalazar
 - Nicolas Figueroa
 - juan flores
+- Diego Bustamante
