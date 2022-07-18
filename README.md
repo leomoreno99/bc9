@@ -11,3 +11,4 @@ bootcamp 9
 - Damian Leiva
 - Gino Gutiérrez
 - Guillermo Gavotti
+- Leonel Moreno
