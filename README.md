@@ -7,3 +7,4 @@ bootcamp 9
 - Agustin Avila
 - Alexis Hernandez
 - Brandon Muñoz
+- Cristian Millan
