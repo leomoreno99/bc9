@@ -65,46 +65,6 @@ local.properties
 .loadpath
 .factorypath
 
-<<<<<<< HEAD
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
-
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must end with two \r
-Icon
-
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-### macOS Patch ###
-# iCloud generated files
-*.icloud
-
-# End of https://www.toptal.com/developers/gitignore/api/macos,java
-=======
 ##############################
 ## NetBeans
 ##############################
@@ -125,4 +85,6 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
->>>>>>> 37046608fe7a3a3a6b1302d8b2ddfabec4e80687
+
+# Ignore Gradle build output directory
+build
