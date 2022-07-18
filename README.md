@@ -2,3 +2,4 @@
 bootcamp 9
 ## Integrantes
 - Eduardo Araya
+- Andrea Holland
