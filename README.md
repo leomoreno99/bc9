@@ -9,3 +9,4 @@ bootcamp 9
 - Brandon Muñoz
 - Cristian Millan
 - Damian Leiva
+- Gino Gutiérrez
