@@ -13,4 +13,6 @@ bootcamp 9
 - Guillermo Gavotti
 - Leonel Moreno
 - Matias Zalazar
+- Nicolas Figueroa
+- juan flores
 
