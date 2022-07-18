@@ -1,9 +1,6 @@
 # bc9
 bootcamp 9
 ## Integrantes
-<<<<<<< HEAD
-- Diego Bustamante
-=======
 - Eduardo Araya
 - Lucas Gonzalez
 - Andrea Holland
@@ -13,4 +10,3 @@ bootcamp 9
 - Cristian Millan
 - Damian Leiva
 - Gino Gutiérrez
->>>>>>> 37046608fe7a3a3a6b1302d8b2ddfabec4e80687
