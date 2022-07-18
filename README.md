@@ -4,4 +4,5 @@ bootcamp 9
 - Eduardo Araya
 - Lucas Gonzalez
 - Andrea Holland
+- Agustin Avila
 
