@@ -1,8 +1,8 @@
-package earaya;
+package lgonzalez;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CountingDuplicatesTest {
 
@@ -13,7 +13,7 @@ public class CountingDuplicatesTest {
 
     @Test
     public void abcdeaReturnsOne() {
-        assertEquals(1, CountingDuplicates.duplicateCount("abcdea"));
+        assertEquals(1, CountingDuplicates.duplicateCount("aabcde"));
     }
 
     @Test
