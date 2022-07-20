@@ -30,5 +30,7 @@ public class CountingDuplicatesTest {
         String test1d = new String(new char[1]).replace('\0', 'd');
         String test = test1d + test1CapitalA + testTenC +
                 testHundredB + testThousandA;
+
+        assertEquals(3, CountingDuplicates.duplicateCount(test));
     }
 }
