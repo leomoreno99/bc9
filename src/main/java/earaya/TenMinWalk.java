@@ -1,10 +1,10 @@
 package earaya;
 
 public class TenMinWalk {
-    public static boolean isValid(char[] chars) {
+    public static boolean isValid(char[] ruta) {
 
         //clausula
-        if (!(chars.length == 10)) {
+        if (!(ruta.length == 10)) {
             return false;
         }
 
@@ -12,7 +12,7 @@ public class TenMinWalk {
         int ewPosition = 0;
 
         for (int i = 0; i < 10; i++) {
-            char caminar = chars[i];
+            char caminar = ruta[i];
             switch (caminar) {
                 case 'n':
                     nsPosition++;
