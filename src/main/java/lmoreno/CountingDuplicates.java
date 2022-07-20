@@ -24,10 +24,11 @@ import java.util.Arrays;
 public class CountingDuplicates {
 
     public static int duplicateCount(String text) {
-        char[] array = text.toCharArray();
-        Arrays.sort(array);
-        String sortedString = new String(array);
-        char[] arrayList = sortedString.toLowerCase().toCharArray();
+        String textLower = text.toLowerCase();
+        char[] arrayList = textLower.toCharArray();
+        Arrays.sort(arrayList);
+        //String sortedString = new String(array);
+        //char[] arrayList = sortedString.toCharArray();
         int cont=0;
         String repeat="";
         for (int j = 1; j < arrayList.length; j++) {
