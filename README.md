@@ -13,6 +13,6 @@ bootcamp 9
 - Guillermo Gavotti
 - Leonel Moreno
 - Matias Zalazar
-- Nicolas Figueroa
+- Nicolas Figueroagit push ori
 - juan flores
 - Diego Bustamante
