@@ -7,7 +7,6 @@ public class TenMinWalk {
         if (!(ruta.length == 10)) {
             return false;
         }
-
         int nsPosition = 0;
         int ewPosition = 0;
 
