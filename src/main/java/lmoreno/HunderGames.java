@@ -84,10 +84,10 @@ public class  HunderGames {
                 if(bool){break;}
             }
         }
-        String lastLineArray =String.join(",",animals);
-        result.add(lastLineArray);
-        String[] finalStateZoo= new String[result.size()];
-        finalStateZoo=result.toArray(finalStateZoo);
+        String lastLineArray =String.join(",",animals); //pasamos el array a string
+        result.add(lastLineArray); //lo agregamos a la ultima posicion
+        String[] finalStateZoo= new String[result.size()]; //creamos un array con el largo
+        finalStateZoo=result.toArray(finalStateZoo);//cambiamos la lista dinamica a un array
         return finalStateZoo;
     }
 
