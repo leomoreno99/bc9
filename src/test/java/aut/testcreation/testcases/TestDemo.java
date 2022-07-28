@@ -90,6 +90,7 @@ public class TestDemo extends SeleniumTestBase {
     private void obtenerDatosEImprimir() {
         String tituloWeb;
         String nombreUrlActual;
+        //String pageSource = driver.getPageSource();
         nombreUrlActual = driver.getCurrentUrl();
         tituloWeb = driver.getTitle();
         System.out.println("Me encuentro en: " + nombreUrlActual + " y su titulo es: " + tituloWeb);
