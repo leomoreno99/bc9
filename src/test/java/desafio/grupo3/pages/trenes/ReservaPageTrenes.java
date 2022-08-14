@@ -20,6 +20,7 @@ public class ReservaPageTrenes extends SeleniumWrapper
     By emailErrorReservaLocator = By.xpath("(//label [@for='email'])[2]");
     By telefonoReservaLocator = By.name("phone");
     By telefonoErrorReservaLocator = By.xpath("(//label [@for='phone'])[2]");
+
     By srViajaLocator = By.id("radio-groups.1.travellers.1.title-MALE-label");
     By sraViajaLocator = By.id("radio-groups.1.travellers.1.title-FEMALE-label");
     By srErrorViajaLocator = By.xpath("(//label [@for='groups.1.travellers.1.title'])[2]");
