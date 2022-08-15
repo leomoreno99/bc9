@@ -15,12 +15,12 @@ public class BusquedaPageTrenes extends SeleniumWrapper
     By filtroMejorLocator = By.xpath("(//li [@data-value = 'best_trip.asc'])[2]");
     By filtroBaratoLocator = By.xpath("(//li [@data-value = 'price.asc'])[2]");
     By filtroRapidoLocator = By.xpath("(//li [@data-value = 'duration.asc'])[2]");
+    By todosPreciosLocator = By.xpath("//span [@class = 'TripCardPrice__FinalPrice-sc-1d8mdrx-5 rCnqw Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']");
+    By todasHorasLocator = By.xpath("//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div");
 
     By resultTotalLocador = By.xpath("(//span [@class ='total-results-text']/strong)[1]");
-    By filtroPrecioLocator = By.xpath("//div[@class='price-filter-container']/descendant::div[@class = 'noUi-handle noUi-handle-lower btn btn-default']");
-    By filtroDuracionLocator = By.xpath("//div[@class='way-duration']/descendant::div[@class = 'noUi-handle noUi-handle-lower btn btn-default']");
-    By filtroCompaniaLocator = By.name("providers-c1892");
-    By filtroVariasCompaniaLocator = By.xpath("//div [@class = 'checkbox providers-filter-view__plus-company']/descendant::input");
+    By desplegableMetodoPagoLocator = By.xpath("//select [@class='form-control']");
+    By btnPayPalLocator = By.xpath("//option [@value='95']");
     By btnLimpiarTodoLocator = By.xpath("//div [@class = 'col-xs-12']/button");
 
     By ingresarAlPrimeroLocator = By.xpath("(//div [@class = 'FullTripCard__PaymentContainer-sc-z8znd4-3 huUwCE'])[1]");
