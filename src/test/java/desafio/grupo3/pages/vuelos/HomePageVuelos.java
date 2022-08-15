@@ -34,5 +34,7 @@ public class HomePageVuelos extends SeleniumWrapper {
     By desplegableClaseLocator = By.className("display-12cbrmg");
     By claseLocator = By.xpath("//div[@class='display-1q6oxg9']/div[2]"); //Clase turista
     By btnBuscarLocator = By.xpath("(//button[text()='Buscar'])[1]"); //Podriamos buscar de esta manera las clases
+    //By cardsContainerMejoresOfertasLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]");
+    By cardMadridLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]/div[1]");
 
  }
