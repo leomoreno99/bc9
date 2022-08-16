@@ -37,4 +37,15 @@ public class HomePageVuelos extends SeleniumWrapper {
     //By cardsContainerMejoresOfertasLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]");
     By cardMadridLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]/div[1]");
 
+    //Methods
+    public void buscarIngresandoDestino(String textoDestino){
+        write(textoDestino, inputDestinoLocator);
+        click(ciudadDestinoLocator);
+        click(btnBuscarLocator);
+    }
+
+    public void navegarAPaginaVuelos(){
+        navigateTo("https://www.rumbo.es/vuelos");
+    }
+
  }
