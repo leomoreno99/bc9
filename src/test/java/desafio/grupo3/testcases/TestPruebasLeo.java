@@ -8,12 +8,18 @@ import org.junit.jupiter.api.Test;
 
 public class TestPruebasLeo extends SeleniumTestBase {
 
+    HomePageRumbo homePageRumbo;
     HomePageVuelos homePageVuelos;
 
     @Test
     void probarFunciones(){
+        homePageRumbo = new HomePageRumbo(DriverFactory.getDriver());
         homePageVuelos = new HomePageVuelos(DriverFactory.getDriver());
-        homePageVuelos.navegarAPaginaVuelos();
-        homePageVuelos.buscarIngresandoDestino("Buenos Aires");
+        homePageRumbo.navegarAlHome();
+        homePageRumbo.aceptarCookies();
+        homePageRumbo.navegarAPaginaVuelos();
+
+
+        homePageVuelos.busquedaCompletaIdaYVuelta("Madrid", "Buenos Aires");
     }
 }

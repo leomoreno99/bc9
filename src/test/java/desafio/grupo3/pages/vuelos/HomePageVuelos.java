@@ -39,13 +39,31 @@ public class HomePageVuelos extends SeleniumWrapper {
 
     //Methods
     public void buscarIngresandoDestino(String textoDestino){
-        write(textoDestino, inputDestinoLocator);
-        click(ciudadDestinoLocator);
+        ingresarDestino(textoDestino);
         click(btnBuscarLocator);
     }
 
-    public void navegarAPaginaVuelos(){
-        navigateTo("https://www.rumbo.es/vuelos");
+    public void busquedaCompletaIdaYVuelta(String textoOrigen, String textoDestino){
+        ingresarOrigen(textoOrigen);
+        ingresarDestino(textoDestino);
+        //clickEnFechaE3(dia);
+        click(btnDiaVueltaLocator);
+        click(btnMasAdultosLocator);
+        click(btnMasNinosLocator);
+        click(desplegableClaseLocator);
+        click(claseLocator);
+        click(btnBuscarLocator);
     }
 
- }
+    private void ingresarDestino(String textoDestino) {
+        write(textoDestino, inputDestinoLocator);
+        click(ciudadDestinoLocator);
+    }
+
+    private void ingresarOrigen(String textoOrigen) {
+        write("", inputOrigenLocator);
+        write(textoOrigen, inputOrigenLocator);
+        click(ciudadOrigenLocator);
+    }
+
+}
