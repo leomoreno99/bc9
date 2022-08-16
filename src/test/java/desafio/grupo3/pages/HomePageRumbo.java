@@ -15,4 +15,25 @@ public class HomePageRumbo extends SeleniumWrapper {
     By btnVuelosLocator =By.xpath("(//a[@title='Vuelos'])[1]");
     By btnHotelesLocator =By.xpath("(//a[@title='Hoteles'])[1]");
     By btnTrenesLocator =By.xpath("(//a[@title='Trenes'])[1]");
+
+    //Methods
+    public void aceptarCookies(){
+        click(btnAceptarCookies);
+    }
+
+    public void navegarAPaginaVuelos(){
+        click(btnVuelosLocator);
+    }
+
+    public void navegarAPaginaHoteles(){
+        click(btnHotelesLocator);
+    }
+
+    public void navegarAPaginaTrenes(){
+        click(btnTrenesLocator);
+    }
+
+    public void navegarAlHome(){
+        navigateTo("https://www.rumbo.es/");
+    }
 }
