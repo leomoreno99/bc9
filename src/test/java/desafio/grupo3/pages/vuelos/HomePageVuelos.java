@@ -37,4 +37,33 @@ public class HomePageVuelos extends SeleniumWrapper {
     //By cardsContainerMejoresOfertasLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]");
     By cardMadridLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]/div[1]");
 
- }
+    //Methods
+    public void buscarIngresandoDestino(String textoDestino){
+        ingresarDestino(textoDestino);
+        click(btnBuscarLocator);
+    }
+
+    public void busquedaCompletaIdaYVuelta(String textoOrigen, String textoDestino){
+        ingresarOrigen(textoOrigen);
+        ingresarDestino(textoDestino);
+        //clickEnFechaE3(dia);
+        click(btnDiaVueltaLocator);
+        click(btnMasAdultosLocator);
+        click(btnMasNinosLocator);
+        click(desplegableClaseLocator);
+        click(claseLocator);
+        click(btnBuscarLocator);
+    }
+
+    private void ingresarDestino(String textoDestino) {
+        write(textoDestino, inputDestinoLocator);
+        click(ciudadDestinoLocator);
+    }
+
+    private void ingresarOrigen(String textoOrigen) {
+        write("", inputOrigenLocator);
+        write(textoOrigen, inputOrigenLocator);
+        click(ciudadOrigenLocator);
+    }
+
+}
