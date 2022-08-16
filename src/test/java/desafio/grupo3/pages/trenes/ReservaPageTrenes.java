@@ -33,5 +33,6 @@ public class ReservaPageTrenes extends SeleniumWrapper
     By anoFechaNacViajaLocator = By.name("groups.1.travellers.1.dateOfBirth");
     By errorFechaNacViajaLocator = By.xpath("//div [@data-test='date-input-error']");
 
+    By btnSiguienteLocator = By.xpath("//button [@data-test='lead-generation-submit-btn']");
 
 }

@@ -23,4 +23,6 @@ public class BusquedaPageHoteles extends SeleniumWrapper
     By mapaMasZoomLocator = By.xpath("//button [@aria-label='Zoom in']");
     By mapaMenosZoomLocator = By.xpath("//button [@aria-label='Zoom out']");
 
+    By ingresarPrimeraHotelLocator = By.xpath("//div [@class='styled__CardsGridStyled-sc-agrgbt-0 hvjdBK']/descendant::div[1]");
+
 }

@@ -23,17 +23,20 @@ public class HomePageTrenes extends SeleniumWrapper
     By ciudadOrigenLocator = By.xpath("(//div[@data-value = 'MAD'])[1]");
 
     By desplegableDestinoLocator = By.xpath("//div[text() = 'Destino']");
-    By ciudadDestinoLocator = By.xpath("(//div[@data-value = 'YJC'])[2]");
+    By ciudadDestinoLocator = By.xpath("(//div[@data-value = 'YJB'])[2]");
     By calendarioFechaIdaLocator = By.xpath("//div[@data-test = 'lmn-sw-cal-outbound']");
     By calendariFechaVueltaLocator = By.xpath("//div[@data-test = 'lmn-sw-cal-inbound']");
-    By btnDiaIdaLocator = By.xpath("//div[@data-date = '20-7-2022']");
-    By btnDiaVueltaLocator = By.xpath("//div[@data-date = '25-7-2022']");
+    By btnDiaIdaLocator = By.xpath("//div[@data-date = '1-8-2022']");
+    By btnDiaVueltaLocator = By.xpath("//div[@data-date = '8-8-2022']");
+
+    By btnHorarioMedioDiaLocator = By.xpath("(//div [@data-time='10-12'])[2]");
+    By btnHorarioTardeNocheLocator = By.xpath("(//div [@data-time='18-22'])[2]");
 
     By desplegablePasajeroLocator = By.xpath("//div[@class = 'lmn-sw-passengers']/div");
     By btnMasAdultoLocator = By.xpath("(//div[@data-type = 'adults']/descendant::div[3])[1]");
-    By btnMenosAdultoLocator = By.xpath("(//div[@data-type = 'adults']/descendant::div[1])[1]");
+    //By btnMenosAdultoLocator = By.xpath("(//div[@data-type = 'adults']/descendant::div[1])[1]");
     By btnMasNinosLocator = By.xpath("(//div[@data-type = 'children']/descendant::div[3])[1]");
-    By btnMenosNinosLocator = By.xpath("(//div[@data-type = 'children']/descendant::div[1])[1]");
+   // By btnMenosNinosLocator = By.xpath("(//div[@data-type = 'children']/descendant::div[1])[1]");
 
     By btnBuscarLocator = By.xpath("//div[@data-test = 'lmn-sw-search-train']");
 
@@ -50,9 +53,7 @@ public class HomePageTrenes extends SeleniumWrapper
         click(btnDiaIdaLocator);
         click(btnDiaVueltaLocator);
         click(btnMasAdultoLocator);
-        click(btnMenosAdultoLocator);
         click(btnMasNinosLocator);
-        click(btnMenosNinosLocator);
         click(btnBuscarLocator);
     }
 
