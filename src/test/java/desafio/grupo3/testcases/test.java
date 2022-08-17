@@ -1,5 +1,6 @@
 package desafio.grupo3.testcases;
 
+import desafio.grupo3.pages.trenes.BusquedaPageTrenes;
 import desafio.grupo3.pages.trenes.HomePageTrenes;
 import desafio.grupo3.pages.trenes.ReservaPageTrenes;
 import framework.engine.selenium.DriverFactory;
@@ -13,6 +14,8 @@ public class test extends SeleniumTestBase
 {
     HomePageTrenes homePageTrenes;
     ReservaPageTrenes reservaPageTrenes;
+
+    BusquedaPageTrenes busquedaPageTrenes;
     @Test
     void PruebaHome(){
         homePageTrenes = new HomePageTrenes(DriverFactory.getDriver());
@@ -26,5 +29,12 @@ public class test extends SeleniumTestBase
         System.out.println(reservaPageTrenes.ValidacionErrorViaja());
         reservaPageTrenes.ValidacionCamposReserva("Brandon","Muñoz","brandon.munoz@gamil.cl","975786172");
         reservaPageTrenes.ValidacionCamposViaja("Brandon","Muñoz","3","9","2022");
+    }
+    @Test
+    void PruebaPrecio()
+    {
+        busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
+        busquedaPageTrenes.navigateTo("https://trenes.rumbo.es/flight/shopping/results/1gx7n27oaavi8");
+        System.out.println(busquedaPageTrenes.ultimoPrecio());
     }
 }
