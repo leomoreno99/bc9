@@ -11,4 +11,10 @@ public class VuelosAPageVuelos extends SeleniumWrapper {
 
     //Locators
     By inputDestinoLocator = By.xpath("//label[text()='Destino']/following-sibling::div/input");
+
+    public String verifDestino() {
+        click(inputDestinoLocator);
+        String Destino = getText(inputDestinoLocator);
+        return Destino;
+    }
 }
