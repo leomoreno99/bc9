@@ -1,10 +1,8 @@
 package framework.engine.selenium;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SeleniumWrapper {
@@ -70,5 +68,11 @@ public class SeleniumWrapper {
     public String getUrlTitle(){
         return driver.getTitle();
     }
+
+    public void switchToG3(String tab){driver.switchTo().window(tab);}
+    public ArrayList<String> getTabsG3(){return new ArrayList<>(driver.getWindowHandles());}
+    public void switchFrameG3(By iframe){driver.switchTo().frame(driver.findElement(iframe));}
+    public String getWindowHandleG3(){return driver.getWindowHandle();}
+
 
 }
