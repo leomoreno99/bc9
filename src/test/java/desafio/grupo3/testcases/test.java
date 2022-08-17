@@ -11,7 +11,7 @@ public class test extends SeleniumTestBase
     @Test
     void ClickDePrueba(){
         homePageTrenes = new HomePageTrenes(DriverFactory.getDriver());
-        homePageTrenes.navegarAlHome();
+        homePageTrenes.BusquedaIdaYVuelta("Barcelona","Madrid",1,8,8,8,4,0);
 
     }
 }

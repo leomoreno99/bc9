@@ -3,6 +3,8 @@ package desafio.grupo3.pages.trenes;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ReservaPageTrenes extends SeleniumWrapper
 {
@@ -33,6 +35,66 @@ public class ReservaPageTrenes extends SeleniumWrapper
     By anoFechaNacViajaLocator = By.name("groups.1.travellers.1.dateOfBirth");
     By errorFechaNacViajaLocator = By.xpath("//div [@data-test='date-input-error']");
 
+
     By btnSiguienteLocator = By.xpath("//button [@data-test='lead-generation-submit-btn']");
+
+    //Metodos
+
+    public void ingresarNombre(String nombre)
+    {
+        write(nombre,nombreReservaLocator);
+    }
+    public void ingresarApellido(String apellido)
+    {
+        write(apellido,apellidoReservaLocator);
+    }
+    public void ingresarEmail(String email)
+    {
+        write(email,emailReservaLocator);
+    }
+    public void ingresarTelefono(String telefono)
+    {
+        write(telefono,telefonoReservaLocator);
+    }
+    public void seleccionSr()
+    {
+        click(srViajaLocator);
+    }
+    public void seleccionSra()
+    {
+        click(sraViajaLocator);
+    }
+    public void ingresarNombreViaje(String nombre)
+    {
+        write(nombre,nombreViajaLocator);
+    }
+    public void ingresarApellidoViaje(String apellido)
+    {
+        write(apellido,apellidoViajaLocator);
+    }
+    public void ingresarFechaNac(String dia,String mes, String ano)
+    {
+        write(dia,diaFechaNacViajaLocator);
+        Select mesSelect = new Select(findElement(mesFechaNacViajaLocator));
+        mesSelect.selectByValue(mes);
+        write(ano,anoFechaNacViajaLocator);
+    }
+
+    public void errores()
+    {
+        getText(nombreErrorReservaLocator);
+        getText(apellidoErrorReservaLocator);
+        getText(emailErrorReservaLocator);
+        getText(telefonoErrorReservaLocator);
+        getText(srErrorViajaLocator);
+        getText(nombreErrorViajaLocator);
+        getText(apellidoErrorViajaLocator);
+        getText(errorFechaNacViajaLocator);
+
+    }
+    public void siguiente()
+    {
+        click(btnSiguienteLocator);
+    }
 
 }
