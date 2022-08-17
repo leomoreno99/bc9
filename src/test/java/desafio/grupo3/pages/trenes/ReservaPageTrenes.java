@@ -30,9 +30,9 @@ public class ReservaPageTrenes extends SeleniumWrapper
     By nombreErrorViajaLocator = By.xpath("(//label [@for='groups.1.travellers.1.name'])[2]");
     By apellidoViajaLocator = By.name("groups.1.travellers.1.surname");
     By apellidoErrorViajaLocator = By.xpath("(//label [@for='groups.1.travellers.1.surname'])[2]");
-    By diaFechaNacViajaLocator = By.name("groups.1.travellers.1.dateOfBirth");
+    By diaFechaNacViajaLocator = By.xpath("(//input [@name='groups.1.travellers.1.dateOfBirth'])[1]");
     By mesFechaNacViajaLocator = By.xpath("//select [@aria-label='Selecciona el mes']");
-    By anoFechaNacViajaLocator = By.name("groups.1.travellers.1.dateOfBirth");
+    By anoFechaNacViajaLocator = By.xpath("(//input [@name='groups.1.travellers.1.dateOfBirth'])[2]");
     By errorFechaNacViajaLocator = By.xpath("//div [@data-test='date-input-error']");
 
 
@@ -79,22 +79,67 @@ public class ReservaPageTrenes extends SeleniumWrapper
         mesSelect.selectByValue(mes);
         write(ano,anoFechaNacViajaLocator);
     }
-
-    public void errores()
+    public String errorNombreReserva()
     {
-        getText(nombreErrorReservaLocator);
-        getText(apellidoErrorReservaLocator);
-        getText(emailErrorReservaLocator);
-        getText(telefonoErrorReservaLocator);
-        getText(srErrorViajaLocator);
-        getText(nombreErrorViajaLocator);
-        getText(apellidoErrorViajaLocator);
-        getText(errorFechaNacViajaLocator);
-
+        return getText(nombreErrorReservaLocator);
+    }
+    public String errorApellidoReserva()
+    {
+        return getText(apellidoErrorReservaLocator);
+    }
+    public String errorEmailReserva()
+    {
+        return getText(emailErrorReservaLocator);
+    }
+    public String errorTelefonoReserva()
+    {
+        return getText(telefonoErrorReservaLocator);
+    }
+    public String errorSroSraViaja()
+    {
+        return getText(srErrorViajaLocator);
+    }
+    public String errorNombreViaja()
+    {
+        return getText(nombreErrorViajaLocator);
+    }
+    public String errorApellidoViaja()
+    {
+        return getText(apellidoErrorViajaLocator);
+    }
+    public String errorFechaNacViaja()
+    {
+        return getText(errorFechaNacViajaLocator);
     }
     public void siguiente()
     {
         click(btnSiguienteLocator);
+    }
+
+    public String ValidacionErrorReserva()
+    {
+        siguiente();
+        return errorNombreReserva()+" , "+errorApellidoReserva()+" , "+errorEmailReserva()+" y "+errorTelefonoReserva();
+    }
+    public void ValidacionCamposReserva(String nombreReserva,String apellidoReserva, String emailReserva, String telefonoReserva)
+    {
+        ingresarNombre(nombreReserva);
+        ingresarApellido(apellidoReserva);
+        ingresarEmail(emailReserva);
+        ingresarTelefono(telefonoReserva);
+    }
+    public String ValidacionErrorViaja()
+    {
+        siguiente();
+        return errorSroSraViaja()+" , "+errorNombreViaja()+" , "+errorApellidoViaja()+" , "+errorFechaNacViaja();
+    }
+    public void ValidacionCamposViaja(String nombreViaja,String apellidoViaja, String diaViaja, String mesViaja, String anoViaja)
+    {
+        seleccionSra();
+        seleccionSr();
+        ingresarNombreViaje(nombreViaja);
+        ingresarApellidoViaje(apellidoViaja);
+        ingresarFechaNac(diaViaja,mesViaja,anoViaja);
     }
 
 }

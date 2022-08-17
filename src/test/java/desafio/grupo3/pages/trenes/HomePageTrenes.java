@@ -36,8 +36,8 @@ public class HomePageTrenes extends SeleniumWrapper
 
 
     By desplegableOrigenLocator = By.xpath("//div[text() = 'Origen']");
-    By errorOrigenLocator = By.xpath("//div [@class='validation-error']/div[1]");
-    By errorDestinoLocator = By.xpath("//div [@class='validation-error']/div[2]");
+    By errorOrigenLocator = By.xpath("(//div [@class='validation-error']/div)[1]");
+    By errorDestinoLocator = By.xpath("(//div [@class='validation-error']/div)[2]");
     By btnHorarioMananaIdaLocator = By.xpath("(//div [@data-time='05-09'])[2]");
     By btnHorarioMedioDiaIdaLocator = By.xpath("(//div [@data-time='10-12'])[2]");
     By btnHorarioTardeIdaLocator = By.xpath("(//div [@data-time='13-17'])[2]");
@@ -143,6 +143,14 @@ public class HomePageTrenes extends SeleniumWrapper
     {
         click(btnBuscarLocator);
     }
+    public String errorOrigen()
+    {
+        return getText(errorOrigenLocator);
+    }
+    public String errorDestino()
+    {
+        return getText(errorDestinoLocator);
+    }
 
     public void BusquedaIdaYVuelta(String origen,String destino, int diaIda,int mesIda,int diaVuelta,int mesVuelta,int numAdult, int numNinos)
     {
@@ -168,11 +176,11 @@ public class HomePageTrenes extends SeleniumWrapper
         anadirANino(numNinos);
         buscar();
     }
-    public void errorOrigenDestino()
+    public String entregaError()
     {
         buscar();
-        getText(errorOrigenLocator);
-        getText(errorDestinoLocator);
+        return errorOrigen()+" y " +errorDestino();
     }
+
 
 }
