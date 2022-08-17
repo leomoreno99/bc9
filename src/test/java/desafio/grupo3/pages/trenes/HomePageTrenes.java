@@ -31,6 +31,7 @@ public class HomePageTrenes extends SeleniumWrapper
         return By.xpath("//div[@data-date = '"+dia+"-"+mes+"-2022']");
     }
 
+    By titleh4Locator = By.xpath("//div[@data-kind='hub-microsite-text']/descendant::h4/span");
     By btnIdaVueltaLocator = By.xpath("//div [@data-type='round_trip']");
     By btnSoloIdaLocator = By.xpath("//div [@data-type='one_way']");
 
@@ -173,6 +174,9 @@ public class HomePageTrenes extends SeleniumWrapper
         buscar();
         getText(errorOrigenLocator);
         getText(errorDestinoLocator);
+    }
+    public String titleh4(){
+        return getText(titleh4Locator);
     }
 
 }
