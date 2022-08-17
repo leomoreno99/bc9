@@ -13,6 +13,8 @@ public class HomePageVuelos extends SeleniumWrapper {
 
     //Locators
 
+    By titleh4Locator = By.xpath("//div[@data-kind='hub-microsite-text']/descendant::h4/span");
+
     By btnIdaVueltaLocator = By.xpath("//div[text() = 'Ida y vuelta']"); // //div[@class='display-cz0mnt-ToggleGroup']/div[1]
     By btnSoloIdaLocator = By.xpath("//div[text() = 'Solo ida']"); // //div[@class='display-cz0mnt-ToggleGroup']/div[2]
     By btnMultidestino = By.xpath("//a[text() = 'Multidestino']");// //div[@class='display-cz0mnt-ToggleGroup']/a
@@ -157,6 +159,7 @@ public class HomePageVuelos extends SeleniumWrapper {
     private void buscarVuelos() {
         click(btnBuscarLocator);
     }
+<<<<<<< HEAD
 
     private void elegirClase(String clase) {
         click(desplegableClaseLocator);
@@ -180,6 +183,11 @@ public class HomePageVuelos extends SeleniumWrapper {
         click(generadorXpathFechas(mesVuelta, diaVuelta));
     }
 
+=======
+    public String titleh4(){
+        return getText(titleh4Locator);
+    }
+>>>>>>> atc01Hotel
     private void ingresarDestino(String textoDestino) {
         write(textoDestino, inputDestinoLocator);
         click(ciudadDestinoLocator);

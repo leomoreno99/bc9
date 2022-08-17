@@ -4,16 +4,15 @@ import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePageHoteles extends SeleniumWrapper
-{
-    public HomePageHoteles(WebDriver driver)
-    {
+public class HomePageHoteles extends SeleniumWrapper {
+    public HomePageHoteles(WebDriver driver) {
         super(driver);
     }
 
     //Locator
 
-    By alojamientoLocator = By.id("mui-1");
+    By titleh4Locator = By.xpath("//div[@data-kind='hub-microsite-text']/descendant::h4/span");
+    /*By alojamientoLocator = By.id("mui-1");
     By despleglabeAlojamientoLocator = By.id("mui-1-listbox");
     By primeraOpcionAlojamientoLocator = By.id("mui-1-option-0");
     By segundaOpcionAlojamientoLocator = By.id("mui-1-option-1");
@@ -58,5 +57,9 @@ public class HomePageHoteles extends SeleniumWrapper
     By hotelesAndorraValorLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::p[10]");
 
     By hotelesIbizaLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::a[6]");
-    By hotelesIbizaValorLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::p[12]");
+    By hotelesIbizaValorLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::p[12]");*/
+
+    public String titleh4(){
+        return getText(titleh4Locator);
+    }
 }
