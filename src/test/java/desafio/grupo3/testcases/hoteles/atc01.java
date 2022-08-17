@@ -1,4 +1,4 @@
-package desafio.grupo3.testcases;
+package desafio.grupo3.testcases.hoteles;
 
 
 import desafio.grupo3.pages.HomePageRumbo;
