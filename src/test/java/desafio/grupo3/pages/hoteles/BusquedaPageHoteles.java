@@ -1,8 +1,15 @@
 package desafio.grupo3.pages.hoteles;
 
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.*;
+
+import java.time.Duration;
+import java.util.function.Function;
 
 public class BusquedaPageHoteles extends SeleniumWrapper
 {
@@ -25,4 +32,13 @@ public class BusquedaPageHoteles extends SeleniumWrapper
 
     By ingresarPrimeraHotelLocator = By.xpath("//div [@class='styled__CardsGridStyled-sc-agrgbt-0 hvjdBK']/descendant::div[1]");
 
+    public boolean todosLosFiltros() throws InterruptedException {
+        Thread.sleep(4000);
+        click(btnTodosFiltrosLocator);
+        if(isDisplayed(btnCerrarTodosFiltrosLocator)){
+            click(btnCerrarTodosFiltrosLocator);
+            return true;
+        }
+        return false;
+    }
 }
