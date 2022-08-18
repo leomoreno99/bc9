@@ -15,7 +15,6 @@ import java.util.List;
 public class Atc02 extends SeleniumTestBase {
     HomePageRumbo homePageRumbo;
     HomePageHoteles homePageHoteles;
-    OfertasPageHoteles ofertasPageHoteles;
     @BeforeEach
     void setup(){
         homePageRumbo = new HomePageRumbo(DriverFactory.getDriver());
@@ -26,11 +25,8 @@ public class Atc02 extends SeleniumTestBase {
     @Test
     void masDeseados(){
         homePageHoteles =  new HomePageHoteles(DriverFactory.getDriver());
-        ofertasPageHoteles = new OfertasPageHoteles(DriverFactory.getDriver());
         homePageRumbo.navegarAPaginaHoteles();
         Assertions.assertEquals(true,homePageHoteles.obtenerTitulosyPrecios(homePageHoteles));
-
-
     }
 
 }
