@@ -87,7 +87,6 @@ public class SeleniumWrapper {
             switchToG3(tabs.get(1));
         }
     }
-
     public void presionarMoverYSoltarG3(By locator, int movX, int movY){
         actions = new Actions(driver);
         actions.dragAndDropBy(findElement(locator), movX, movY).build().perform();
