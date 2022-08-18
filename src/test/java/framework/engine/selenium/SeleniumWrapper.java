@@ -87,15 +87,8 @@ public class SeleniumWrapper {
             switchToG3(tabs.get(1));
         }
     }
-<<<<<<< HEAD
-
     public void presionarMoverYSoltarG3(By locator, int movX, int movY){
         actions = new Actions(driver);
         actions.dragAndDropBy(findElement(locator), movX, movY).build().perform();
-=======
-    public WebDriverWait waitG3(long i){
-        WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(),i);
-        return wait;
->>>>>>> atc03
     }
 }
