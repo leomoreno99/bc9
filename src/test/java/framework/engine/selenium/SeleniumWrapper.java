@@ -85,4 +85,8 @@ public class SeleniumWrapper {
             switchToG3(tabs.get(1));
         }
     }
+    public WebDriverWait waitG3(long i){
+        WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(),i);
+        return wait;
+    }
 }
