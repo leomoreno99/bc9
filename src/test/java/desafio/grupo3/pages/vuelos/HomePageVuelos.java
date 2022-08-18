@@ -65,6 +65,7 @@ public class HomePageVuelos extends SeleniumWrapper {
         ingresarFechas(mesIda, diaIda, mesVuelta, diaVuelta);
         ingresarPasajeros(adultos, ninos, bebes);
         elegirClase(clase);
+        recogerDatosIngresados();
         buscarVuelos();
     }
 
@@ -96,12 +97,18 @@ public class HomePageVuelos extends SeleniumWrapper {
         return count;
     }
 
-    private void clickSoloIda() {
+    public void clickSoloIda() {
         click(btnSoloIdaLocator);
     }
 
     public void clickMultidestino(){
         click(btnMultidestino);
+    }
+
+    public void recogerDatosIngresados(){
+        ArrayList<String> datos = new ArrayList<>();
+        datos.add(findElement(inputOrigenLocator).getAttribute("value"));
+        System.out.println(datos);
     }
 
     //Secondary methods

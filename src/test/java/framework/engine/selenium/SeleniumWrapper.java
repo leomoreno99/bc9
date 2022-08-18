@@ -1,6 +1,7 @@
 package framework.engine.selenium;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
@@ -11,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class SeleniumWrapper {
 
     private final WebDriver driver;
+    Actions actions;
 
     //Constructor Base
     public SeleniumWrapper(WebDriver driver){
@@ -82,5 +84,10 @@ public class SeleniumWrapper {
         if(tabs.size() > 1){
             switchToG3(tabs.get(1));
         }
+    }
+
+    public void presionarMoverYSoltarG3(By locator, int movX, int movY){
+        actions = new Actions(driver);
+        actions.dragAndDropBy(findElement(locator), movX, movY).build().perform();
     }
 }
