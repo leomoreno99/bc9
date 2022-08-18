@@ -31,13 +31,13 @@ public class BusquedaPageTrenes extends SeleniumWrapper
     }
     public By generadorXpathUltimoPrecio ()
     {
+
         int Guardar = Integer.parseInt(totalResultadoViajes());
 
-        do
+        while (isDisplayed(btnVerMasResultadosLocator))
         {
             click(btnVerMasResultadosLocator);
-
-        }while(isDisplayed(btnVerMasResultadosLocator));
+        }
 
         return By.xpath("(//span [@class = 'TripCardPrice__FinalPrice-sc-1d8mdrx-5 rCnqw Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM'])["+Guardar+"]");
 
@@ -154,14 +154,11 @@ public class BusquedaPageTrenes extends SeleniumWrapper
     public String resultadoTotal()
     {
         String resultado = getText(resultTotalLocator);
+        String[] Particion = resultado.split(" ");
+        String parte = Particion[0];
         String guardado="";
-        for(String dividir : resultado.split(" "))
-        {
-            guardado = dividir;
-            break;
-        }
+        guardado = parte;
         return guardado;
-
     }
     public  String totalResultadoViajes()
     {
@@ -174,15 +171,12 @@ public class BusquedaPageTrenes extends SeleniumWrapper
     public double primerPrecio()
     {
         String resultado = getText(primerPreciosLocator);
+        String[] Particion = resultado.split(" ");
+        String parte = Particion[0];
         double guardado=0;
-        for(String dividir : resultado.split(" "))
-        {
-            String aux = dividir.replace(",",".");
-            guardado = Double.parseDouble(aux);
-            break;
-        }
+        String aux = parte.replace(",",".");
+        guardado = Double.parseDouble(aux);
         return guardado;
-
     }
     public double ultimoPrecio()
     {
@@ -190,12 +184,9 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         String[] Particion = resultado.split(" ");
         String parte1 = Particion[0];
         double guardado=0;
-
         String aux = parte1.replace(",",".");
         guardado = Double.parseDouble(aux);
-
         return guardado;
-
     }
 
     public String limpiarFiltro()
@@ -224,6 +215,15 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         anadirANino(numNinos);
         ingresarClase(clase);
         buscar();
+    }
+    public boolean MasBarato()
+    {
+        if(primerPrecio()<ultimoPrecio())
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
