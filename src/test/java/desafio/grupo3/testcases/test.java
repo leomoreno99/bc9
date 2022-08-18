@@ -31,10 +31,22 @@ public class test extends SeleniumTestBase
         reservaPageTrenes.ValidacionCamposViaja("Brandon","Muñoz","3","9","2022");
     }
     @Test
-    void PruebaPrecio()
-    {
+    void PruebaPrecio() {
         busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
-        busquedaPageTrenes.navigateTo("https://trenes.rumbo.es/flight/shopping/results/1gx7n27oaavi8");
-        System.out.println(busquedaPageTrenes.ultimoPrecio());
+        busquedaPageTrenes.navigateTo("https://trenes.rumbo.es/flight/shopping/results/1gxahr0d5nitc");
+        Assertions.assertTrue(busquedaPageTrenes.MasBarato());
+    }
+
+    @Test
+    void PruebaDuracion() {
+        busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
+        busquedaPageTrenes.navigateTo("https://trenes.rumbo.es/flight/shopping/results/1gxahr0d5nitc");
+        Assertions.assertTrue(busquedaPageTrenes.MasRapido());
+    }
+    @Test
+    void PruebaFiltro() {
+        busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
+        busquedaPageTrenes.navigateTo("https://trenes.rumbo.es/flight/shopping/results/1gxahr0d5nitc");
+        System.out.println(busquedaPageTrenes.limpiarFiltro());
     }
 }

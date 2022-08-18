@@ -1,8 +1,16 @@
 package desafio.grupo3.pages.trenes;
 
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BusquedaPageTrenes extends SeleniumWrapper
 {
@@ -29,25 +37,31 @@ public class BusquedaPageTrenes extends SeleniumWrapper
     {
         return By.xpath("//div[@class='select-items']/div[text()='"+clase+"']");
     }
-    public By generadorXpathUltimoPrecio ()
-    {
+    public By generadorXpathUltimoPrecio () {
 
         int Guardar = Integer.parseInt(totalResultadoViajes());
 
-        while (isDisplayed(btnVerMasResultadosLocator))
-        {
-            click(btnVerMasResultadosLocator);
-        }
-
         return By.xpath("(//span [@class = 'TripCardPrice__FinalPrice-sc-1d8mdrx-5 rCnqw Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM'])["+Guardar+"]");
+    }
+    public By generadorXpathUltimoHorario() {
 
+        int Guardar = Integer.parseInt(totalResultadoViajes());
+        Guardar = (Guardar*2)-1;
+        return By.xpath("(//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div)["+Guardar+"]");
+    }
+    public By generadorXpathUltimoHorarioVuelta() {
+
+        int Guardar = Integer.parseInt(totalResultadoViajes());
+        Guardar = (Guardar*2);
+        return By.xpath("(//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div)["+Guardar+"]");
     }
     By ordenMejorLocator = By.xpath("(//li [@data-value = 'best_trip.asc'])[2]");
     By ordenBaratoLocator = By.xpath("(//li [@data-value = 'price.asc'])[2]");
     By ordenRapidoLocator = By.xpath("(//li [@data-value = 'duration.asc'])[2]");
     By primerPreciosLocator = By.xpath("(//span [@class = 'TripCardPrice__FinalPrice-sc-1d8mdrx-5 rCnqw Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM'])[1]");
-    By todasHorasLocator = By.xpath("//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div");
-    By btnVerMasResultadosLocator = By.xpath("//div [@class = 'col-sm-4 col-sm-offset-4 col-xs-12']/button");
+    By primerHorasLocator = By.xpath("(//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div)[1]");
+    By segundoHorasLocator = By.xpath("(//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div)[2]");
+    //By btnVerMasResultadosLocator = By.xpath("//button [@type='button' and contains(text(),'Ver más resultados')]");
     By totalLocator = By.xpath("(//span [@class ='total-results-text']/strong)[1]");
     By resultTotalLocator = By.xpath("(//span [@class ='total-results-text']/strong)[2]");
     By desplegableMetodoPagoLocator = By.xpath("//select [@class='form-control']");
@@ -178,8 +192,7 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         guardado = Double.parseDouble(aux);
         return guardado;
     }
-    public double ultimoPrecio()
-    {
+    public double ultimoPrecio()  {
         String resultado = getText(generadorXpathUltimoPrecio());
         String[] Particion = resultado.split(" ");
         String parte1 = Particion[0];
@@ -188,20 +201,71 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         guardado = Double.parseDouble(aux);
         return guardado;
     }
+    public double primerHorario()
+    {
+        String resultado = getText(primerHorasLocator);
+        String[] Particion = resultado.split(" ");
+        String[] parte = Particion[0].split("h");
+        String[] parte2 = Particion[1].split("m");
+        String aux = parte[0];
+        String aux2 = parte2[0];
+        String union = aux+"."+aux2;
+        double guardado=0;
+        guardado = Double.parseDouble(union);
+        return guardado;
+    }
+    public double segundoHorario()
+    {
+        String resultado = getText(segundoHorasLocator);
+        String[] Particion = resultado.split(" ");
+        String[] parte = Particion[0].split("h");
+        String[] parte2 = Particion[1].split("m");
+        String aux = parte[0];
+        String aux2 = parte2[0];
+        String union = aux+"."+aux2;
+        double guardado=0;
+        guardado = Double.parseDouble(union);
+        return guardado;
+    }
+    public double ultimoHorario()
+    {
+        String resultado = getText(generadorXpathUltimoHorario());
+        String[] Particion = resultado.split(" ");
+        String[] parte = Particion[0].split("h");
+        String[] parte2 = Particion[1].split("m");
+        String aux = parte[0];
+        String aux2 = parte2[0];
+        String union = aux+"."+aux2;
+        double guardado=0;
+        guardado = Double.parseDouble(union);
+        return guardado;
+    }
+    public double segundoUltimoHorario()
+    {
+        String resultado = getText(generadorXpathUltimoHorarioVuelta());
+        String[] Particion = resultado.split(" ");
+        String[] parte = Particion[0].split("h");
+        String[] parte2 = Particion[1].split("m");
+        String aux = parte[0];
+        String aux2 = parte2[0];
+        String union = aux+"."+aux2;
+        double guardado=0;
+        guardado = Double.parseDouble(union);
+        return guardado;
+    }
 
     public String limpiarFiltro()
     {
-        String resultado,total;
         desplegableMetdePago();
+
         metodoPagoPaypal();
+
         if(resultadoTotal()!=totalResultadoViajes())
         {
             btnLimpiarFiltro();
+
         }
-        else
-        {
-            return "filtro sin cambio";
-        }
+
         return totalResultadoViajes();
     }
     public void modificarBusqueda(String origen,String destino, int diaIda,int mesIda,int diaVuelta,int mesVuelta,int numAdult, int numNinos,String clase)
@@ -216,8 +280,10 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         ingresarClase(clase);
         buscar();
     }
+
     public boolean MasBarato()
     {
+        ordenBarato();
         if(primerPrecio()<ultimoPrecio())
         {
             return true;
@@ -225,7 +291,31 @@ public class BusquedaPageTrenes extends SeleniumWrapper
 
         return false;
     }
+    public boolean MasRapido()
+    {
+        ordenRapido();
+        if(primerHorario()<ultimoHorario())
+        {
+            return true;
+        }
 
+        return false;
+    }
+    public boolean MasElMejor()
+    {
+        double promedio;
+        double promedioUltimo;
+        promedio = (primerHorario()+segundoHorario())/2;
+        promedioUltimo = (ultimoHorario()+segundoUltimoHorario())/2;
+        if(primerPrecio()<ultimoPrecio())
+        {
+            if(promedio<promedioUltimo)
+            {
+                return true;
+            }
+        }
 
+        return false;
+    }
 
 }
