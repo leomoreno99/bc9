@@ -22,15 +22,6 @@ public class test extends SeleniumTestBase
         Assertions.assertEquals("Selecciona ciudad de origen y Selecciona ciudad de destino",homePageTrenes.entregaError());
     }
     @Test
-    void PruebaReserva()
-    {
-        reservaPageTrenes = new ReservaPageTrenes(DriverFactory.getDriver());
-        System.out.println(reservaPageTrenes.ValidacionErrorReserva());
-        System.out.println(reservaPageTrenes.ValidacionErrorViaja());
-        reservaPageTrenes.ValidacionCamposReserva("Brandon","Muñoz","brandon.munoz@gamil.cl","975786172");
-        reservaPageTrenes.ValidacionCamposViaja("Brandon","Muñoz","3","9","2022");
-    }
-    @Test
     void PruebaPrecio() {
         busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
         busquedaPageTrenes.navigateTo("https://trenes.rumbo.es/flight/shopping/results/1gxahr0d5nitc");
