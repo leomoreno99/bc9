@@ -19,10 +19,10 @@ public class TestPruebasLeo extends SeleniumTestBase {
     BusquedaPageVuelos busquedaPageVuelos;
 
     @ParameterizedTest
-    @CsvSource({"Madrid,Ezeiza,8,23,8,29,4,2,1,Turista",
+    @CsvSource({"Madrid,Mexico,9,1,9,2,1,0,0,Turista",
                 "Cancún,Narita,9,1,9,5,3,1,2,Business"})
     //@Test
-    void probarFunciones(String textoOrigen, String textoDestino, int mesDia, int diaIda, int mesVuelta, int diaVuelta, int adultos, int ninos, int bebes, String clase){
+    void probarFunciones(String textoOrigen, String textoDestino, int mesDia, int diaIda, int mesVuelta, int diaVuelta, int adultos, int ninos, int bebes, String clase) throws InterruptedException {
         homePageRumbo = new HomePageRumbo(DriverFactory.getDriver());
         homePageVuelos = new HomePageVuelos(DriverFactory.getDriver());
         busquedaPageVuelos = new BusquedaPageVuelos(DriverFactory.getDriver());
@@ -38,8 +38,12 @@ public class TestPruebasLeo extends SeleniumTestBase {
         //Assertions.assertEquals(6, count);
         //Assertions.assertEquals(11, count + count2);
 
-        homePageVuelos.cambiarTab();
+        //homePageVuelos.cambiarTab();
         //busquedaPageVuelos.elegirVuelo();
-        busquedaPageVuelos.recogerDatosVuelo();
+        //busquedaPageVuelos.recogerDatosVuelo();
+        //busquedaPageVuelos.filtrarPecio(-155,0);
+        //Thread.sleep(5000);
+        //boolean res = busquedaPageVuelos.compararPrecios(); //Si es que son mayores a 2000
+        //homePageVuelos.recogerDatosIngresados();
     }
 }

@@ -3,6 +3,7 @@ package desafio.grupo3.pages.vuelos;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,7 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
     By desplegablePasajeroLocator = By.xpath("//div[@class = 'lmn-sw-passengers']/div/div");
     By desplegableClaseLocator = By.className("select-selected");
 
-    By listaResultadosLocator = By.xpath("//section[@data-role='results']");
+    By listaPreciosLocator = By.xpath("//div[@class='TripCardPrice__PriceWrapper-sc-1d8mdrx-1 gWgEuQ']/descendant::span[@size='20']");
     By btnSeleccionarVuelo = By.xpath("(//div[@class='FullTripCard__SelectedPriceContainer-sc-z8znd4-4 fpDjbd'])[1]");
 
     //Funciones
@@ -46,7 +47,26 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
         datos.add(getText(desplegableClaseLocator));
     }
 
-    public void filtrarPecio(){}
+    public void filtrarPecio(int movX, int movY){
+        presionarMoverYSoltarG3(filtroPrecioLocator, movX, movY);
+    }
 
-    public void compararPrecios(){}
+    public boolean compararPrecios() {
+        //Esperar
+        boolean isMayor = false;
+        ArrayList<WebElement> preciosWebElement = new ArrayList<>(findElements(listaPreciosLocator));
+        ArrayList<String> textPrecios = new ArrayList<>();
+        ArrayList<Float> precios = new ArrayList<>();
+        for (WebElement precio : preciosWebElement) {
+            textPrecios.add(precio.getText());
+        }
+        for (String precio : textPrecios) {
+            precios.add(Float.valueOf(precio.substring(0, precio.length() - 1).trim().replace(",", ".")));
+        }
+        for (int i = 0; i < precios.size(); i++) {
+            if(precios.get(i) > 2000)
+                isMayor = true;
+        }
+        return isMayor;
+    }
 }
