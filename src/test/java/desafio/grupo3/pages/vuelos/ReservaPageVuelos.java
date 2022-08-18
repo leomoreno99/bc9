@@ -30,4 +30,44 @@ public class ReservaPageVuelos extends SeleniumWrapper {
 
     By btnMasDetallePrecioLocator = By.xpath("//span[@data-test='receipt-toggle-label']");
     By listaDesgosePreciosLocator = By.xpath("//ul[@data-test='receipt-cost-items']");
+    By btnCerrarDetalle = By.xpath("//span[@data-testid=\"dialog-close-btn\"]");
+
+    public void clickVerDetalles(){click(btnVerDetallesLocator);}
+
+    public String comprobarDetalles(){
+        String detalleTotal="";
+        String detalleFechaida = "";
+        String detalleFechaVuelta = "";
+        String desdeHaciaIda="";
+        String desdeHaciaVuelta="";
+        String duracionVueloIda="";
+        String duracionVueloVuelta="";
+        String claseIda="";
+        String claseVuelta="";
+
+
+        if (isDisplayed(fechaViajeIdaLocator)){
+           detalleFechaida = getText(fechaViajeIdaLocator);
+           detalleFechaVuelta = getText(fechaViajeVueltaLocator);
+           desdeHaciaIda = getText(ciudadesDesdeHaciaIdaLocator);
+           desdeHaciaVuelta = getText(ciudadesDesdeHaciaVueltaLocator);
+           duracionVueloIda = getText(duracionVueloIdaLocator);
+           duracionVueloVuelta = getText(duracionVueloVueltaLocator);
+           claseIda = getText(claseIdaLocator);
+           claseVuelta = getText(claseVueltaLocator);
+
+        }
+        click(btnCerrarDetalle);
+        detalleTotal = detalleFechaida+", "+desdeHaciaIda+", "+duracionVueloIda+", "+claseIda+", "+detalleFechaVuelta+", "+desdeHaciaVuelta+", "+duracionVueloVuelta+", "+claseVuelta;
+        return detalleTotal;
+    }
+
+    public boolean desgloseDisponible(){
+        boolean count= false;
+        click(btnMasDetallePrecioLocator);
+        if(isDisplayed(listaDesgosePreciosLocator)){
+            count = true;
+        }
+        return count;
+    }
 }
