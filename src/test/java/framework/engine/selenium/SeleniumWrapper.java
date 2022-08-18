@@ -74,5 +74,10 @@ public class SeleniumWrapper {
     public void switchFrameG3(By iframe){driver.switchTo().frame(driver.findElement(iframe));}
     public String getWindowHandleG3(){return driver.getWindowHandle();}
 
-
+    public void cambiarTab(){
+        ArrayList<String> tabs = getTabsG3();
+        if(tabs.size() > 1){
+            switchToG3(tabs.get(1));
+        }
+    }
 }

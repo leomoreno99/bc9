@@ -100,10 +100,6 @@ public class HomePageVuelos extends SeleniumWrapper {
 
     public void clickMultidestino(){
         click(btnMultidestino);
-        /*ArrayList<String> tabs= getTabs();
-        if(tabs.size() > 1){
-            switchToG3(tabs.get(1));
-        }*/
     }
 
     //Secondary methods
@@ -186,7 +182,7 @@ public class HomePageVuelos extends SeleniumWrapper {
     }
 
     private void ingresarOrigen(String textoOrigen) {
-        write("\b", inputOrigenLocator);
+        findElement(inputOrigenLocator).clear();
         write(textoOrigen, inputOrigenLocator);
         click(ciudadOrigenLocator);
     }
