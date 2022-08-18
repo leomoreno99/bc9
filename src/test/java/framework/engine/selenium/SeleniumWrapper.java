@@ -74,6 +74,7 @@ public class SeleniumWrapper {
     public void switchFrameG3(By iframe){driver.switchTo().frame(driver.findElement(iframe));}
     public String getWindowHandleG3(){return driver.getWindowHandle();}
     public void closeWindowsG3(){driver.close();}
+    public String getLinkG3(){return driver.getCurrentUrl();};
 
 
 }

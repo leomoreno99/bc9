@@ -2,6 +2,7 @@ package desafio.grupo3.pages.hoteles;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
+import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -106,15 +107,21 @@ public class HomePageHoteles extends SeleniumWrapper {
         }
         return locatorsPrecios;
     }
-    public List<String> obtenerTitulosyPrecios(HomePageHoteles driver){
+    public boolean obtenerTitulosyPrecios(HomePageHoteles driver){
         List<By> locatorsTitulos = byArrayTitulos();
         List<By> locatorsPrecios = byArrayPrecios();
         List<String> esperados = new ArrayList<>();
         List<String> resultados = new ArrayList<>();
+        boolean test=true;
+        String ciudad;
+        String comparacion = "hoteles en ";
+        String urlEsperada;
         ofertasPageHoteles = new OfertasPageHoteles(DriverFactory.getDriver());
 
         for(int i=0;i< locatorsTitulos.size();i++){
             String titulo = (getText(locatorsTitulos.get(i))).toLowerCase();
+            ciudad = StringUtils.difference(comparacion,titulo);
+            urlEsperada=ciudad+"?";
             String precio = (getText(locatorsPrecios.get(i))).toLowerCase();
             String esperado =  titulo +" "+ precio;
             esperados.add(esperado);
@@ -122,13 +129,18 @@ public class HomePageHoteles extends SeleniumWrapper {
             List<String> pestanas = driver.getTabsG3();
             driver.switchToG3(pestanas.get(pestanas.size()-1));
             String resultado= ofertasPageHoteles.resultado();
-            if(esperado == resultado){resultados.add("true");}
-            else {resultados.add("false");}
+            String url= driver.getLinkG3();
+            if(esperado == resultado && url.contains(urlEsperada)){resultados.add("true");}
+            else {
+                System.out.println("Revisar redirección " + titulo);
+                resultados.add("false");
+                test=false;
+            }
             driver.closeWindowsG3();
             driver.switchToG3(pestanas.get(0));
 
         }
-        return resultados;
+        return test;
     }
 
 }
