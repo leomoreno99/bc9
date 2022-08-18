@@ -23,6 +23,7 @@ public class atc04 extends SeleniumTestBase {
         homepagerumbo.aceptarCookies();
         homepagerumbo.navegarAPaginaVuelos();
         homepagevuelos.seleccionarOfertaMadrid();
+        homepagevuelos.cambiarTab();
         String resultado = vuelosapagevuelos.verifDestino();
         Assertions.assertEquals("Vuelos a Madrid", resultado);
     }

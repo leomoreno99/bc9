@@ -29,6 +29,7 @@ public class atc02 extends SeleniumTestBase {
         homepagevuelos.clickSoloIda();
         varIda = homepagevuelos.comprobarFormularioIda("madrid");
         homepagevuelos.clickMultidestino();
+        homepagevuelos.cambiarTab();
         multipagevuelos.abrirOrigen1();
         multipagevuelos.abrirDestino1();
         multipagevuelos.abrirFecha1();
