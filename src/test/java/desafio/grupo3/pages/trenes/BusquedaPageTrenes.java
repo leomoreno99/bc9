@@ -65,6 +65,8 @@ public class BusquedaPageTrenes extends SeleniumWrapper
     //By btnVerMasResultadosLocator = By.xpath("//button [@type='button' and contains(text(),'Ver más resultados')]");
     By totalLocator = By.xpath("(//span [@class ='total-results-text']/strong)[1]");
     By resultTotalLocator = By.xpath("(//span [@class ='total-results-text']/strong)[2]");
+
+    By btnVerTodosLocator = By.xpath("(//a [@Class='total-results-view--reset_all js-reset'])[1]");
     By desplegableMetodoPagoLocator = By.xpath("//select [@class='form-control']");
     By btnPayPalLocator = By.xpath("//option [@value='95']");
     By btnLimpiarTodoLocator = By.xpath("//div [@class = 'col-xs-12']/button");
@@ -261,16 +263,16 @@ public class BusquedaPageTrenes extends SeleniumWrapper
 
     public String limpiarFiltro()
     {
+
         desplegableMetdePago();
-
         metodoPagoPaypal();
-
         if(resultadoTotal()!=totalResultadoViajes())
         {
             btnLimpiarFiltro();
-
         }
-
+        WebElement total = findElement(btnVerTodosLocator);
+        WebDriverWait exwait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        exwait.until(ExpectedConditions.invisibilityOf(total));
         return totalResultadoViajes();
     }
     public String modificarBusqueda(String origen,String destino, int diaIda,int mesIda,int diaVuelta,int mesVuelta,int numAdult, int numNinos,String clase)
