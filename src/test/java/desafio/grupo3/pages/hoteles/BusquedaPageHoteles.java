@@ -2,13 +2,11 @@ package desafio.grupo3.pages.hoteles;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.function.Function;
 
 public class BusquedaPageHoteles extends SeleniumWrapper
@@ -23,7 +21,8 @@ public class BusquedaPageHoteles extends SeleniumWrapper
     By btnTodosFiltrosLocator = By.xpath("//div [@class = 'styled__AllFiltersStyled-sc-1o4ryub-0 elBqKB active']");
     By btnCerrarTodosFiltrosLocator = By.xpath("//div [@class = 'styled__ModalFrameClose-sc-12zjd5z-1 hDaoLJ']");
     By btnEliminarTodosFiltrosLocator = By.xpath("//button [@class = 'styled__ResetOnTop-sc-18vcrz8-2 gQgRoD']");
-    By mascotaLocator = By.id("exp_elem_facilities_1");
+    By mascotaLocator = By.xpath("//span[text()='Mascotas']");
+    By spanMascota = By.xpath("//li[@class=\"AmenitiesSummary___StyledLi-sc-4545v1-2 zmHdy\"]/span");
     By btnAplicarLocator = By.xpath("//button [@class = 'styled__ApplyStyled-sc-18vcrz8-4 cHQYkF']");
 
     By ampliarMapaLocator = By.xpath("//div[@class='styled__ExpandMapContainer-sc-ukaj4w-5 iDCRmI']");
@@ -39,6 +38,28 @@ public class BusquedaPageHoteles extends SeleniumWrapper
             click(btnCerrarTodosFiltrosLocator);
             return true;
         }
+        return false;
+    }
+
+    public void buscarMascotas() throws InterruptedException {
+        Thread.sleep(4000);
+        JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getDriver();
+        click(btnTodosFiltrosLocator);
+        js.executeScript("arguments[0].scrollIntoView();", findElement(mascotaLocator));
+        click(mascotaLocator);
+        //presionarMoverYSoltarG3(mascotaLocator,0,0);
+        click(btnAplicarLocator);
+        Thread.sleep(4000);
+        click(ingresarPrimeraHotelLocator);
+    }
+    public boolean corroborarMascotas(){
+       List<WebElement> array = findElements(spanMascota);
+       String correcto = "Admite mascotas";
+       for(int i=0;i< array.size();i++){
+           if(array.get(i).getText().equals(correcto)){
+               return true;
+           }
+       }
         return false;
     }
 }
