@@ -44,12 +44,13 @@ public class TestPruebasLeo extends SeleniumTestBase {
         //Thread.sleep(5000);
         //boolean res = busquedaPageVuelos.compararPrecios(); //Si es que son mayores a 2000
         //homePageVuelos.recogerDatosIngresados();
-        homePageVuelos.llenarCamposIdaYVuelta(textoOrigen, textoDestino, mesDia, diaIda, mesVuelta, diaVuelta, adultos, ninos, bebes, clase);
+
+        /*homePageVuelos.llenarCamposIdaYVuelta(textoOrigen, textoDestino, mesDia, diaIda, mesVuelta, diaVuelta, adultos, ninos, bebes, clase);
         ArrayList<String> datos1 = new ArrayList<>(homePageVuelos.recogerDatosIngresados());
         homePageVuelos.buscarVuelos();
         homePageVuelos.cambiarTab();
         ArrayList<String> datos2 = new ArrayList<>(busquedaPageVuelos.recogerDatosVuelo());
         int result = busquedaPageVuelos.comprarar(datos1, datos2);
-        Assertions.assertEquals(6, result);
+        Assertions.assertEquals(6, result);*/
     }
 }
