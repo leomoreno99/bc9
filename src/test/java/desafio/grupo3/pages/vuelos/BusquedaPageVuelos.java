@@ -47,27 +47,14 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
 
         datos.add(text.replaceAll("\\p{Punct}", ""));
         datos.add(text2.replaceAll("\\p{Punct}", ""));
-
-        //datos.add(getText(fechaIdaLocator));
-       //datos.add(getText(fechaVueltaLocator));
         datos.add(getText(desplegablePasajeroLocator));
         datos.add(getText(desplegableClaseLocator));
-
-       /* String text = datos.get(2).replaceAll("\\p{Punct}", "");
-        String text2 = datos.get(3).replaceAll("\\p{Punct}", "");*/
 
         return datos;
     }
 
     public int comprarar(ArrayList<String> datos1, ArrayList<String> datos2){
         int cont = 0;
-        /*String tCalIda1 = datos1.get(2).replaceAll("\\p{Punct}", "");
-        String tCalVuelta1 = datos1.get(3).replaceAll("\\p{Punct}", "");
-        String tCalIda2 = datos2.get(2).replaceAll("\\p{Punct}", "");
-        String tCalVuelta2 = datos2.get(3).replaceAll("\\p{Punct}", "");*/
-
-       /* boolean contiene = datos1.get(0).contains(datos2.get(0));
-        boolean contiene2 = datos1.get(1).contains(datos2.get(1));*/
 
         for (int i = 0; i < datos1.size(); i++) {
             if(datos1.get(i).contains(datos2.get(i)))

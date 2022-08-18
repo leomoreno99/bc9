@@ -33,11 +33,6 @@ public class MultidestinoPageVuelos extends SeleniumWrapper {
 
     int count=0;
 
-    /*public void cambiarTAB(){
-        //String tab = getWindowHandleG3();
-        //switchToMultG3(tab);
-        switchFrame(iframeLocator);
-    }*/
     public void aceptarCookies(){
         click(btnCookies);
     }
