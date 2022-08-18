@@ -73,8 +73,10 @@ public class HomePageTrenes extends SeleniumWrapper
         click(btnIdaVueltaLocator);
     }
     public void ingresarOrigen(String origen)
-    {
+    {  WebElement ciuidad = findElement(generadorXpathOrigen(origen));
         click(desplegableOrigenLocator);
+        WebDriverWait exwait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        exwait.until(ExpectedConditions.elementToBeClickable(ciuidad));
         click(generadorXpathOrigen(origen));
     }
 

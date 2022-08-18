@@ -116,30 +116,37 @@ public class ReservaPageTrenes extends SeleniumWrapper
         click(btnSiguienteLocator);
     }
 
-    public String ValidacionErrorReserva()
-    {
-        siguiente();
-        return errorNombreReserva()+" , "+errorApellidoReserva()+" , "+errorEmailReserva()+" y "+errorTelefonoReserva();
-    }
-    public void ValidacionCamposReserva(String nombreReserva,String apellidoReserva, String emailReserva, String telefonoReserva)
+
+
+    public String validarCampo (String nombreReserva,String apellidoReserva)
     {
         ingresarNombre(nombreReserva);
         ingresarApellido(apellidoReserva);
+        siguiente();
+        return errorEmailReserva() + " y " + errorTelefonoReserva();
+    }
+
+    public String validarCampo2 (String emailReserva,String telefonoReserva)
+    {
         ingresarEmail(emailReserva);
         ingresarTelefono(telefonoReserva);
-    }
-    public String ValidacionErrorViaja()
-    {
         siguiente();
-        return errorSroSraViaja()+" , "+errorNombreViaja()+" , "+errorApellidoViaja()+" , "+errorFechaNacViaja();
+        return errorNombreReserva() + " y " + errorApellidoReserva();
     }
-    public void ValidacionCamposViaja(String nombreViaja,String apellidoViaja, String diaViaja, String mesViaja, String anoViaja)
+    public String validarCampo3 (String nombreViaja,String apellidoViaja)
     {
-        seleccionSra();
-        seleccionSr();
+
         ingresarNombreViaje(nombreViaja);
         ingresarApellidoViaje(apellidoViaja);
+        siguiente();
+        return errorSroSraViaja() + " y " + errorFechaNacViaja();
+    }
+    public String validarCampo4 (String diaViaja,String mesViaja,String anoViaja)
+    {
+        seleccionSr();
         ingresarFechaNac(diaViaja,mesViaja,anoViaja);
+        siguiente();
+        return errorNombreViaja() + " y " + errorApellidoViaja();
     }
 
 }
