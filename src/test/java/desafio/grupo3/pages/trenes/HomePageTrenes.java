@@ -1,6 +1,7 @@
 package desafio.grupo3.pages.trenes;
 
 import com.beust.jcommander.Parameter;
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,7 +9,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePageTrenes extends SeleniumWrapper
 {
@@ -166,8 +172,8 @@ public class HomePageTrenes extends SeleniumWrapper
         anadirANino(numNinos);
         buscar();
     }
-    public void BusquedaSoloIda(String origen,String destino, int diaIda,int mesIda,int numAdult, int numNinos)
-    {
+    public void BusquedaSoloIda(String origen,String destino, int diaIda,int mesIda,int numAdult, int numNinos){
+
         soloIda();
         ingresarOrigen(origen);
         ingresarDestino(destino);
