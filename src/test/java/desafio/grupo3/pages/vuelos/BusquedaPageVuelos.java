@@ -83,7 +83,7 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
 
     public boolean compararPrecios() {
         //Esperar
-        boolean isMayor = false;
+        boolean isMayor = true;
         ArrayList<WebElement> preciosWebElement = new ArrayList<>(findElements(listaPreciosLocator));
         ArrayList<String> textPrecios = new ArrayList<>();
         ArrayList<Float> precios = new ArrayList<>();
@@ -95,7 +95,7 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
         }
         for (int i = 0; i < precios.size(); i++) {
             if(precios.get(i) > 2000)
-                isMayor = true;
+                isMayor = false;
         }
         return isMayor;
     }

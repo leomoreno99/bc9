@@ -17,15 +17,15 @@ public class Atc06 extends SeleniumTestBase {
     void menores200() throws InterruptedException {
         homePageRumbo = new HomePageRumbo(DriverFactory.getDriver());
         homePageVuelos = new HomePageVuelos(DriverFactory.getDriver());
+        busquedaPageVuelos = new BusquedaPageVuelos(DriverFactory.getDriver());
         homePageRumbo.navegarAlHome();
         homePageRumbo.aceptarCookies();
         homePageRumbo.navegarAPaginaVuelos();
         homePageVuelos.busquedaCompletaIdaYVuelta("Madrid", "Mexico", 9,1,9,2,1,0,0,"Turista");
         homePageVuelos.cambiarTab();
-        busquedaPageVuelos.filtrarPecio(-155,0);
+        busquedaPageVuelos.filtrarPecio(-159,0); //El problema es que tenemos que calcular bien los pixeles
         Thread.sleep(5000);
-        boolean res = busquedaPageVuelos.compararPrecios(); //Si es que son mayores a 2000
-        Assertions.assertTrue(res);
+        Assertions.assertTrue(busquedaPageVuelos.compararPrecios());//Si es que son mayores a 2000
     }
 
 }
