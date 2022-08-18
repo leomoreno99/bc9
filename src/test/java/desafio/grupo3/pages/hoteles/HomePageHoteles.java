@@ -1,5 +1,6 @@
 package desafio.grupo3.pages.hoteles;
 
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -63,35 +64,71 @@ public class HomePageHoteles extends SeleniumWrapper {
     By hotelesIbizaValorLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::p[12]");*/
 
     //localizadores ofertas
-    By listadoOfertasLocator = By.xpath("//a[@class=\"display-1jpjtw4-HubAnchor-styles e89md6u0\"]/descendant::h4[contains(text(),\"Hoteles en\")]");
-    private List<String> generadorOfertas(){
-        List<String> xpathOfertas = new ArrayList<>();
-        List<WebElement> ofertas = findElements(listadoOfertasLocator);
+    By listadoOfertasTituloLocator = By.xpath("//a[@class=\"display-1jpjtw4-HubAnchor-styles e89md6u0\"]/descendant::h4[contains(text(),\"Hoteles en\")]");
+    By listadoOfertasPrecioLocator = By.xpath("//a[@class=\"display-1jpjtw4-HubAnchor-styles e89md6u0\"]/descendant::p[@class=\"display-exp40l-HubFeatureCard-styled e1apqt30\"][contains(text(),\"Desde\")]");
+    OfertasPageHoteles ofertasPageHoteles;
+    private List<String> xpathsTitulos(){
+        List<String> xpathOfertasTitulos = new ArrayList<>();
+        List<WebElement> ofertas = findElements(listadoOfertasTituloLocator);
         for (int i=1; i<=ofertas.size();i++){
         String xpath = "(//a[@class=\"display-1jpjtw4-HubAnchor-styles e89md6u0\"]/descendant::h4[contains(text(),\"Hoteles en\")])["+i+"]";
-        xpathOfertas.add(xpath);
+        xpathOfertasTitulos.add(xpath);
         }
 
-        return xpathOfertas;
+        return xpathOfertasTitulos;
+    }
+    private List<String> xpathsPrecios(){
+        List<String> xpathOfertasPrecios = new ArrayList<>();
+        List<WebElement> ofertas = findElements(listadoOfertasPrecioLocator);
+        for (int i=1; i<=ofertas.size();i++){
+            String xpath = "(//a[@class=\"display-1jpjtw4-HubAnchor-styles e89md6u0\"]/descendant::p[@class=\"display-exp40l-HubFeatureCard-styled e1apqt30\"][contains(text(),\"Desde\")])["+i+"]";
+            xpathOfertasPrecios.add(xpath);
+        }
+
+        return xpathOfertasPrecios;
     }
     public String titleh4(){
         return getText(titleh4Locator);
     }
-    private List<By> byArray(){
-        List<String> xpaths = generadorOfertas();
-        List<By> locators = new ArrayList<>();
+    private List<By> byArrayTitulos(){
+        List<String> xpaths = xpathsTitulos();
+        List<By> locatorsTitulos = new ArrayList<>();
         for (int i=0;i<xpaths.size();i++) {
-            locators.add(By.xpath(xpaths.get(i)));
+            locatorsTitulos.add(By.xpath(xpaths.get(i)));
         }
-        /*for(int i=0;i<locators.size();i++){
-            click(locators.get(i));
-
-        }*/
-        return locators;
+        return locatorsTitulos;
     }
-    public void compararOfertas(){
-        List<By> locators = byArray();
+    private List<By> byArrayPrecios(){
+        List<String> xpaths = xpathsPrecios();
+        List<By> locatorsPrecios = new ArrayList<>();
+        for (int i=0;i<xpaths.size();i++) {
+            locatorsPrecios.add(By.xpath(xpaths.get(i)));
+        }
+        return locatorsPrecios;
+    }
+    public List<String> obtenerTitulosyPrecios(HomePageHoteles driver){
+        List<By> locatorsTitulos = byArrayTitulos();
+        List<By> locatorsPrecios = byArrayPrecios();
+        List<String> esperados = new ArrayList<>();
+        List<String> resultados = new ArrayList<>();
+        ofertasPageHoteles = new OfertasPageHoteles(DriverFactory.getDriver());
 
+        for(int i=0;i< locatorsTitulos.size();i++){
+            String titulo = (getText(locatorsTitulos.get(i))).toLowerCase();
+            String precio = (getText(locatorsPrecios.get(i))).toLowerCase();
+            String esperado =  titulo +" "+ precio;
+            esperados.add(esperado);
+            click(locatorsTitulos.get(i));
+            List<String> pestanas = driver.getTabsG3();
+            driver.switchToG3(pestanas.get(pestanas.size()-1));
+            String resultado= ofertasPageHoteles.resultado();
+            if(esperado == resultado){resultados.add("true");}
+            else {resultados.add("false");}
+            driver.closeWindowsG3();
+            driver.switchToG3(pestanas.get(0));
+
+        }
+        return resultados;
     }
 
 }
