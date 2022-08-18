@@ -27,7 +27,9 @@ public class TestPruebaGino extends SeleniumTestBase{
         hpr.navegarAlHome();
         hpr.aceptarCookies();
         hpr.navegarAPaginaVuelos();
-      //  hpv.Multi();
+
+        hpv.clickMultidestino();
+
        // mpv.cambiarTAB();
         //mpv.aceptarCookies();
         mpv.abrirOrigen1();
@@ -54,8 +56,13 @@ public class TestPruebaGino extends SeleniumTestBase{
         hpr.aceptarCookies();
         hpr.navegarAPaginaVuelos();
         //hpv.ofertaMadrid();
+
         String resultado = vap.verifDestino();
         Assertions.assertEquals("Vuelos a Madrid", resultado);
+
+        vap.verifDestino();
+        Assertions.assertEquals("Madrid (MAD) Adolfo Suárez Barajas, España", vap.verifDestino());
+
     }
 }
 
