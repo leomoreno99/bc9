@@ -180,7 +180,10 @@ public class HomePageVuelos extends SeleniumWrapper {
     public String titleh4(){
         return getText(titleh4Locator);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> atc02
     private void ingresarDestino(String textoDestino) {
         write(textoDestino, inputDestinoLocator);
         click(ciudadDestinoLocator);
