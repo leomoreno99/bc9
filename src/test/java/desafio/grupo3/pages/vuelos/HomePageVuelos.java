@@ -45,6 +45,12 @@ public class HomePageVuelos extends SeleniumWrapper {
     //By cardsContainerMejoresOfertasLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]");
     By cardMadridLocator = By.xpath("(//div[@class='hub-row e1pc4xpi0 display-xamolz-Row-styles-HubComponentsGrid e1sskiuc0'])[4]/div[1]");
 
+    By textoCalendarioIdaLocator = By.xpath("//div[@class='display-1k2a5w2']/descendant::button[1]/span");
+    By textoCalendarioVueltaLocator = By.xpath("//div[@class='display-1k2a5w2']/descendant::button[2]/span");
+    By textoPasajeroLocator = By.xpath("(//span[@class='display-19d528r-Dropdown-styled-textOverflowEllipsis-Dropdown-styled'])[1]");
+    By textoClaseLocator = By.xpath("//div[@class='display-12cbrmg']/descendant::span");
+
+
     public By generadorXpathFechas (int mes, int dia) {
         return By.xpath("//span[@id='" + (mes - 1) + "']/following-sibling::*/button[text()='" + dia + "']");
     }
@@ -65,8 +71,15 @@ public class HomePageVuelos extends SeleniumWrapper {
         ingresarFechas(mesIda, diaIda, mesVuelta, diaVuelta);
         ingresarPasajeros(adultos, ninos, bebes);
         elegirClase(clase);
-        recogerDatosIngresados();
         buscarVuelos();
+    }
+
+    public void llenarCamposIdaYVuelta(String textoOrigen, String textoDestino, int mesIda, int diaIda, int mesVuelta, int diaVuelta, int adultos, int ninos, int bebes, String clase){
+        ingresarOrigen(textoOrigen);
+        ingresarDestino(textoDestino);
+        ingresarFechas(mesIda, diaIda, mesVuelta, diaVuelta);
+        ingresarPasajeros(adultos, ninos, bebes);
+        elegirClase(clase);
     }
 
     public void seleccionarOfertaMadrid(){
@@ -105,10 +118,27 @@ public class HomePageVuelos extends SeleniumWrapper {
         click(btnMultidestino);
     }
 
-    public void recogerDatosIngresados(){
+    public ArrayList<String> recogerDatosIngresados(){
         ArrayList<String> datos = new ArrayList<>();
         datos.add(findElement(inputOrigenLocator).getAttribute("value"));
-        System.out.println(datos);
+        datos.add(findElement(inputDestinoLocator).getAttribute("value"));
+
+        String text = getText(textoCalendarioIdaLocator);
+        String text2 = getText(textoCalendarioVueltaLocator);
+
+        /*text = datos.get(2).replaceAll("\\p{Punct}", "");
+        text2 = datos.get(3).replaceAll("\\p{Punct}", "");*/
+
+        datos.add(text.replaceAll("\\p{Punct}", ""));
+        datos.add(text2.replaceAll("\\p{Punct}", ""));
+
+        //datos.add(getText(textoCalendarioIdaLocator));
+        //datos.add(getText(textoCalendarioVueltaLocator));
+        datos.add(getText(textoPasajeroLocator));
+        datos.add(getText(textoClaseLocator));
+
+
+        return datos;
     }
 
     //Secondary methods
@@ -159,7 +189,7 @@ public class HomePageVuelos extends SeleniumWrapper {
         return count;
     }
 
-    private void buscarVuelos() {
+    public void buscarVuelos() {
         click(btnBuscarLocator);
     }
     private void elegirClase(String clase) {
