@@ -159,8 +159,6 @@ public class HomePageVuelos extends SeleniumWrapper {
     private void buscarVuelos() {
         click(btnBuscarLocator);
     }
-<<<<<<< HEAD
-
     private void elegirClase(String clase) {
         click(desplegableClaseLocator);
         click(generadorXpathClase(clase));
@@ -183,11 +181,10 @@ public class HomePageVuelos extends SeleniumWrapper {
         click(generadorXpathFechas(mesVuelta, diaVuelta));
     }
 
-=======
     public String titleh4(){
         return getText(titleh4Locator);
     }
->>>>>>> atc01Hotel
+
     private void ingresarDestino(String textoDestino) {
         write(textoDestino, inputDestinoLocator);
         click(ciudadDestinoLocator);
