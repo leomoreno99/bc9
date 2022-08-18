@@ -3,6 +3,9 @@ package desafio.grupo3.pages.hoteles;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.*;
 
 public class HomePageHoteles extends SeleniumWrapper {
     public HomePageHoteles(WebDriver driver) {
@@ -36,12 +39,12 @@ public class HomePageHoteles extends SeleniumWrapper {
     By btnSegundaNinosMenosLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[7]");
     By btnSegundaNinosMasLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[8]");
 
-    By btnBuscarLocator = By.xpath("//div [@class = 'display-1jqt24b']/button");
+    By btnBuscarLocator = By.xpath("//div [@class = 'display-1jqt24b']/button");*/
 
 
     //Locator Hoteles mas Deseados
 
-    By hotelesMadridLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::a[1]");
+    /*By hotelesMadridLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::a[1]");
     By hotelesMadridValorLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::p[2]");
 
     By hotelesBarcelonaLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::a[2]");
@@ -59,7 +62,36 @@ public class HomePageHoteles extends SeleniumWrapper {
     By hotelesIbizaLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::a[6]");
     By hotelesIbizaValorLocator = By.xpath("(//div [@class = 'hub-col-md-12 hub-col-12 hub-col display-1l4c07p-Column-styles-Column-styles e1i8mjyc0'])[8]/descendant::p[12]");*/
 
+    //localizadores ofertas
+    By listadoOfertasLocator = By.xpath("//a[@class=\"display-1jpjtw4-HubAnchor-styles e89md6u0\"]/descendant::h4[contains(text(),\"Hoteles en\")]");
+    private List<String> generadorOfertas(){
+        List<String> xpathOfertas = new ArrayList<>();
+        List<WebElement> ofertas = findElements(listadoOfertasLocator);
+        for (int i=1; i<=ofertas.size();i++){
+        String xpath = "(//a[@class=\"display-1jpjtw4-HubAnchor-styles e89md6u0\"]/descendant::h4[contains(text(),\"Hoteles en\")])["+i+"]";
+        xpathOfertas.add(xpath);
+        }
+
+        return xpathOfertas;
+    }
     public String titleh4(){
         return getText(titleh4Locator);
     }
+    private List<By> byArray(){
+        List<String> xpaths = generadorOfertas();
+        List<By> locators = new ArrayList<>();
+        for (int i=0;i<xpaths.size();i++) {
+            locators.add(By.xpath(xpaths.get(i)));
+        }
+        /*for(int i=0;i<locators.size();i++){
+            click(locators.get(i));
+
+        }*/
+        return locators;
+    }
+    public void compararOfertas(){
+        List<By> locators = byArray();
+
+    }
+
 }
