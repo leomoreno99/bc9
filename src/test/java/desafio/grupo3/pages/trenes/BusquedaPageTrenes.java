@@ -5,6 +5,7 @@ import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -103,8 +104,10 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         click(btnModificarLocator);
     }
     public void ingresarOrigen(String origen)
-    {
+    {  WebElement ciuidad = findElement(generadorXpathOrigen(origen));
         click(desplegableOrigenLocator);
+        WebDriverWait exwait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        exwait.until(ExpectedConditions.elementToBeClickable(ciuidad));
         click(generadorXpathOrigen(origen));
     }
 
@@ -175,7 +178,9 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         return guardado;
     }
     public  String totalResultadoViajes()
-    {
+    {   //WebElement total = findElement(totalLocator);
+        WebDriverWait exwait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        exwait.until(ExpectedConditions.presenceOfElementLocated(totalLocator));
         return getText(totalLocator);
     }
     public void btnLimpiarFiltro()
@@ -268,7 +273,7 @@ public class BusquedaPageTrenes extends SeleniumWrapper
 
         return totalResultadoViajes();
     }
-    public void modificarBusqueda(String origen,String destino, int diaIda,int mesIda,int diaVuelta,int mesVuelta,int numAdult, int numNinos,String clase)
+    public String modificarBusqueda(String origen,String destino, int diaIda,int mesIda,int diaVuelta,int mesVuelta,int numAdult, int numNinos,String clase)
     {
         seleccionBtnModificar();
         ingresarOrigen(origen);
@@ -279,6 +284,8 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         anadirANino(numNinos);
         ingresarClase(clase);
         buscar();
+        return totalResultadoViajes();
+
     }
 
     public boolean MasBarato()

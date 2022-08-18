@@ -25,33 +25,27 @@ public class atc01 extends SeleniumTestBase
         homePageRumbo.aceptarCookies();
     }
     @Test
-    public void filtradoElMejor() throws InterruptedException {
+    public void filtradoElMejor()  {
         homePageTrenes = new HomePageTrenes(DriverFactory.getDriver());
         busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
         homePageRumbo.navegarAPaginaTrenes();
-        Thread.sleep(1000);
         homePageTrenes.BusquedaIdaYVuelta("Madrid","A Coruña",20,8,21,8,1,0);
-        Thread.sleep(3000);
         Assertions.assertTrue(busquedaPageTrenes.MasElMejor());
     }
     @Test
-    public void filtradoMasBarato() throws InterruptedException {
+    public void filtradoMasBarato() {
         homePageTrenes = new HomePageTrenes(DriverFactory.getDriver());
         busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
         homePageRumbo.navegarAPaginaTrenes();
-        Thread.sleep(1000);
         homePageTrenes.BusquedaIdaYVuelta("Madrid","A Coruña",20,8,21,8,1,0);
-        Thread.sleep(3000);
         Assertions.assertTrue(busquedaPageTrenes.MasBarato());
     }
     @Test
-    public void filtradoMasRapido() throws InterruptedException {
+    public void filtradoMasRapido() {
         homePageTrenes = new HomePageTrenes(DriverFactory.getDriver());
         busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
         homePageRumbo.navegarAPaginaTrenes();
-        Thread.sleep(1000);
         homePageTrenes.BusquedaIdaYVuelta("Madrid","A Coruña",20,8,21,8,1,0);
-        Thread.sleep(3000);
         Assertions.assertTrue(busquedaPageTrenes.MasRapido());
     }
 
