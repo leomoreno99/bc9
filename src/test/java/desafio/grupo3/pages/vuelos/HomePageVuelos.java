@@ -128,14 +128,8 @@ public class HomePageVuelos extends SeleniumWrapper {
         String text = getText(textoCalendarioIdaLocator);
         String text2 = getText(textoCalendarioVueltaLocator);
 
-        /*text = datos.get(2).replaceAll("\\p{Punct}", "");
-        text2 = datos.get(3).replaceAll("\\p{Punct}", "");*/
-
         datos.add(text.replaceAll("\\p{Punct}", ""));
         datos.add(text2.replaceAll("\\p{Punct}", ""));
-
-        //datos.add(getText(textoCalendarioIdaLocator));
-        //datos.add(getText(textoCalendarioVueltaLocator));
         datos.add(getText(textoPasajeroLocator));
         datos.add(getText(textoClaseLocator));
 

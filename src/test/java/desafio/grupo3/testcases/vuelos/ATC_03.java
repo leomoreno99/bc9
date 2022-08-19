@@ -6,13 +6,12 @@ import desafio.grupo3.pages.vuelos.HomePageVuelos;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.ArrayList;
 
-public class atc03 extends SeleniumTestBase {
+public class ATC_03 extends SeleniumTestBase {
     HomePageRumbo homePageRumbo;
     HomePageVuelos homePageVuelos;
     BusquedaPageVuelos busquedaPageVuelos;
@@ -31,6 +30,6 @@ public class atc03 extends SeleniumTestBase {
         homePageVuelos.buscarVuelos();
         homePageVuelos.cambiarTab();
         ArrayList<String> datos2 = new ArrayList<>(busquedaPageVuelos.recogerDatosVuelo());
-        Assertions.assertEquals(6, busquedaPageVuelos.comprarar(datos1, datos2));//podriamos hacer aqui lo de comprarar
+        Assertions.assertEquals(6, busquedaPageVuelos.comprarar(datos1, datos2));
     }
 }

@@ -41,7 +41,7 @@ public class TestPruebaGino extends SeleniumTestBase{
         mpv.botonMasDestinos();
         mpv.abrirOrigen3();
         mpv.abrirDestino3();
-        var = mpv.abrirFecha3();
+        //var = mpv.abrirFecha3();
 
         Assertions.assertEquals(9,var);
 

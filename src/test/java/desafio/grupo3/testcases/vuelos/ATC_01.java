@@ -1,7 +1,6 @@
 package desafio.grupo3.testcases.vuelos;
 
 import desafio.grupo3.pages.HomePageRumbo;
-import desafio.grupo3.pages.vuelos.BusquedaPageVuelos;
 import desafio.grupo3.pages.vuelos.HomePageVuelos;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-public class atc01 extends SeleniumTestBase {
+public class ATC_01 extends SeleniumTestBase {
     HomePageRumbo homePageRumbo;
     HomePageVuelos homePageVuelos;
 
@@ -24,7 +23,6 @@ public class atc01 extends SeleniumTestBase {
         Thread.sleep(5000);
         homePageVuelos.buscarVuelos();
         Thread.sleep(5000);
-        String title = homePageVuelos.getUrlTitle();
-        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo", title);
+        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo", homePageVuelos.getUrlTitle());
     }
 }

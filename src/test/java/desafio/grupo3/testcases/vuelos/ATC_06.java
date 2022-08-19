@@ -8,13 +8,13 @@ import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Atc06 extends SeleniumTestBase {
+public class ATC_06 extends SeleniumTestBase {
     HomePageRumbo homePageRumbo;
     HomePageVuelos homePageVuelos;
     BusquedaPageVuelos busquedaPageVuelos;
 
     @Test
-    void menores200() throws InterruptedException {
+    void menores2000() throws InterruptedException {
         homePageRumbo = new HomePageRumbo(DriverFactory.getDriver());
         homePageVuelos = new HomePageVuelos(DriverFactory.getDriver());
         busquedaPageVuelos = new BusquedaPageVuelos(DriverFactory.getDriver());
@@ -23,10 +23,10 @@ public class Atc06 extends SeleniumTestBase {
         homePageRumbo.navegarAPaginaVuelos();
         homePageVuelos.busquedaCompletaIdaYVuelta("Madrid", "Mexico", 9,1,9,2,1,0,0,"Turista");
         homePageVuelos.cambiarTab();
-        busquedaPageVuelos.filtrarPecio(-160,0); //El problema es que tenemos que calcular bien los pixeles
+        busquedaPageVuelos.filtrarPecio(-160,0);
         busquedaPageVuelos.espera();
 
-        Assertions.assertTrue(busquedaPageVuelos.compararPrecios());//Si es que son mayores a 2000
+        Assertions.assertTrue(busquedaPageVuelos.compararPrecios());
     }
 
 }

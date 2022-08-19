@@ -9,21 +9,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class atc04 extends SeleniumTestBase
+public class ATC_04 extends SeleniumTestBase
 {
 
         HomePageRumbo homePageRumbo;
         HomePageTrenes homePageTrenes;
         BusquedaPageTrenes busquedaPageTrenes;
 
-        @BeforeEach
-        void setup(){
+        @Test
+        public void Modificarbusqueda(){
         homePageRumbo = new HomePageRumbo(DriverFactory.getDriver());
         homePageRumbo.navegarAlHome();
         homePageRumbo.aceptarCookies();
-        }
-        @Test
-        public void Modificarbusqueda(){
         homePageTrenes = new HomePageTrenes(DriverFactory.getDriver());
         busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
         homePageRumbo.navegarAPaginaTrenes();

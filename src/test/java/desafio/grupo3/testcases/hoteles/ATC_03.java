@@ -11,29 +11,25 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class Atc04 extends SeleniumTestBase {
+public class ATC_03 extends SeleniumTestBase {
     HomePageRumbo homePageRumbo;
     HomePageHoteles homePageHoteles;
     BusquedaPageHoteles busquedaPageHoteles;
-    @BeforeEach
-    void setup(){
+
+    @Test
+    void todosLosFiltros() throws InterruptedException {
         homePageRumbo = new HomePageRumbo(DriverFactory.getDriver());
         homePageRumbo.navegarAlHome();
         homePageRumbo.aceptarCookies();
         homePageRumbo.navegarAPaginaHoteles();
-    }
-    @Test
-    void hotelMascotas() throws InterruptedException {
         homePageHoteles = new HomePageHoteles(DriverFactory.getDriver());
         homePageHoteles.ingresarDestino("Barcelona");
         homePageHoteles.ingresarFechas(8,26,8,31);
         homePageHoteles.habitaciones();
         homePageHoteles.buscar();
+        homePageHoteles.cambiarTab();
         busquedaPageHoteles = new BusquedaPageHoteles(DriverFactory.getDriver());
-        busquedaPageHoteles.buscarMascotas();
-        ArrayList<String> tabs = busquedaPageHoteles.getTabsG3();
-        busquedaPageHoteles.switchToG3(tabs.get(tabs.size()-1));
-        Assertions.assertTrue(busquedaPageHoteles.corroborarMascotas());
-    }
+        Assertions.assertTrue(busquedaPageHoteles.todosLosFiltros());
 
+    }
 }

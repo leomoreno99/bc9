@@ -36,6 +36,21 @@ public class MultidestinoPageVuelos extends SeleniumWrapper {
     public void aceptarCookies(){
         click(btnCookies);
     }
+
+    public int comprobarFormularioMultidestino(){
+        abrirOrigen1();
+        abrirDestino1();
+        abrirFecha1();
+        abrirOrigen2();
+        abrirDestino2();
+        abrirFecha2();
+        botonMasDestinos();
+        abrirOrigen3();
+        abrirDestino3();
+        abrirFecha3();
+
+        return count;
+    }
     public void abrirOrigen1(){
         click(inputOrigen1);
         if(isDisplayed(desplegable)){
@@ -84,12 +99,11 @@ public class MultidestinoPageVuelos extends SeleniumWrapper {
             count++;
         }
     }
-    public int abrirFecha3(){
+    public void abrirFecha3(){
         click(inputSalida3);
         if(isDisplayed(inputCalendario)){
             count++;
         }
-        return count;
     }
     public void botonMasDestinos(){
         click(btnMasDestinos);

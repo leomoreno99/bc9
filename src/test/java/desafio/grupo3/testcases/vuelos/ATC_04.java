@@ -8,9 +8,7 @@ import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Driver;
-
-public class atc04 extends SeleniumTestBase {
+public class ATC_04 extends SeleniumTestBase {
     HomePageRumbo homepagerumbo;
     HomePageVuelos homepagevuelos;
     VuelosAPageVuelos vuelosapagevuelos;
@@ -24,7 +22,6 @@ public class atc04 extends SeleniumTestBase {
         homepagerumbo.navegarAPaginaVuelos();
         homepagevuelos.seleccionarOfertaMadrid();
         homepagevuelos.cambiarTab();
-        String resultado = vuelosapagevuelos.verifDestino();
-        Assertions.assertEquals("Vuelos a Madrid", resultado);
+        Assertions.assertEquals("Vuelos a Madrid", vuelosapagevuelos.verifDestino());
     }
 }

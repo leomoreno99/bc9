@@ -9,7 +9,7 @@ import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.*;
 
-public class Atc01 extends SeleniumTestBase {
+public class ATC_01 extends SeleniumTestBase {
     HomePageRumbo homePageRumbo;
     HomePageVuelos homePageVuelos;
     HomePageTrenes homePageTrenes;
