@@ -89,6 +89,12 @@ public class SeleniumWrapper {
     }
     public void presionarMoverYSoltarG3(By locator, int movX, int movY){
         actions = new Actions(driver);
-        actions.dragAndDropBy(findElement(locator), movX, movY).build().perform();
+        actions.dragAndDropBy(findElement(locator), movX , movY).build().perform();
     }
+
+    public WebDriverWait eWaitG3(){
+         WebDriverWait eWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+         return eWait;
+    }
+
 }

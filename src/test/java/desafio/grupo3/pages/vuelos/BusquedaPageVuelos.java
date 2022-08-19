@@ -1,10 +1,14 @@
 package desafio.grupo3.pages.vuelos;
 
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class BusquedaPageVuelos extends SeleniumWrapper {
@@ -30,6 +34,7 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
 
     By listaPreciosLocator = By.xpath("//div[@class='TripCardPrice__PriceWrapper-sc-1d8mdrx-1 gWgEuQ']/descendant::span[@size='20']");
     By btnSeleccionarVuelo = By.xpath("(//div[@class='FullTripCard__SelectedPriceContainer-sc-z8znd4-4 fpDjbd'])[1]");
+    By btnVerTodosLocator = By.xpath("(//a [@Class='total-results-view--reset_all js-reset'])[1]");
 
     //Funciones
     public void elegirVuelo(){
@@ -66,6 +71,10 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
 
     public void filtrarPecio(int movX, int movY){
         presionarMoverYSoltarG3(filtroPrecioLocator, movX, movY);
+    }
+
+    public void espera(){
+        eWaitG3().until(ExpectedConditions.visibilityOf(findElement(btnVerTodosLocator)));
     }
 
     public boolean compararPrecios() {

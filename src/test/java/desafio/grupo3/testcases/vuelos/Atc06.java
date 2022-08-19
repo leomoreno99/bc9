@@ -23,8 +23,9 @@ public class Atc06 extends SeleniumTestBase {
         homePageRumbo.navegarAPaginaVuelos();
         homePageVuelos.busquedaCompletaIdaYVuelta("Madrid", "Mexico", 9,1,9,2,1,0,0,"Turista");
         homePageVuelos.cambiarTab();
-        busquedaPageVuelos.filtrarPecio(-159,0); //El problema es que tenemos que calcular bien los pixeles
-        Thread.sleep(5000);
+        busquedaPageVuelos.filtrarPecio(-160,0); //El problema es que tenemos que calcular bien los pixeles
+        busquedaPageVuelos.espera();
+
         Assertions.assertTrue(busquedaPageVuelos.compararPrecios());//Si es que son mayores a 2000
     }
 

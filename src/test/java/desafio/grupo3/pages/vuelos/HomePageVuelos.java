@@ -3,6 +3,8 @@ package desafio.grupo3.pages.vuelos;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 
