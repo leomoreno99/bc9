@@ -31,6 +31,10 @@ public class BusquedaPageHoteles extends SeleniumWrapper
 
     By ingresarPrimeraHotelLocator = By.xpath("//div [@class='styled__CardsGridStyled-sc-agrgbt-0 hvjdBK']/descendant::div[1]");
 
+    By pinMapaLocator = By.xpath("//div[@class='mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate']/div[1]");
+    By mapaLocator = By.xpath("//canvas[@aria-label='Map']");
+    By checkBuscarMapaLocator = By.xpath("//div[text()='Buscar al mover el mapa']");
+
     public boolean todosLosFiltros() throws InterruptedException {
         Thread.sleep(4000);
         click(btnTodosFiltrosLocator);
@@ -62,4 +66,43 @@ public class BusquedaPageHoteles extends SeleniumWrapper
        }
         return false;
     }
+
+    public boolean probarBotonMas(){
+        eWaitG3().until(ExpectedConditions.visibilityOf(findElement(checkBuscarMapaLocator)));
+        String text = findElement(pinMapaLocator).getAttribute("style");
+        click(mapaMasZoomLocator);
+        String text2 = findElement(pinMapaLocator).getAttribute("style");
+        return text.equals(text2);
+    }
+
+    public boolean probarBotonMenos(){
+        eWaitG3().until(ExpectedConditions.visibilityOf(findElement(checkBuscarMapaLocator)));
+        String text = findElement(pinMapaLocator).getAttribute("style");
+        click(mapaMenosZoomLocator);
+        String text2 = findElement(pinMapaLocator).getAttribute("style");
+        return text.equals(text2);
+    }
+
+    public boolean scrollMas() {
+        eWaitG3().until(ExpectedConditions.visibilityOf(findElement(checkBuscarMapaLocator)));
+        String text = findElement(pinMapaLocator).getAttribute("style");
+        WebElement mapa = findElement(mapaLocator);
+        mapa.sendKeys(Keys.ADD);
+        String text2 = findElement(pinMapaLocator).getAttribute("style");
+        return text.equals(text2);
+    }
+
+    public boolean scrollMenos() {
+        eWaitG3().until(ExpectedConditions.visibilityOf(findElement(checkBuscarMapaLocator)));
+        String text = findElement(pinMapaLocator).getAttribute("style");
+        WebElement mapa = findElement(mapaLocator);
+        mapa.sendKeys(Keys.SUBTRACT);
+        String text2 = findElement(pinMapaLocator).getAttribute("style");
+        return text.equals(text2);
+    }
+
+    public void ampliarMapa(){
+        click(ampliarMapaLocator);
+    }
+
 }
