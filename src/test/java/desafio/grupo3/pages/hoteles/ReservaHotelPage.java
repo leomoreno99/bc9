@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ReservaHotelPage extends SeleniumWrapper {
     public ReservaHotelPage(WebDriver driver) {super(driver);}
@@ -52,8 +51,6 @@ public class ReservaHotelPage extends SeleniumWrapper {
 
         datos.add(fechaE.replaceAll("\\p{Punct}", " "));
         datos.add(fechaS.replaceAll("\\p{Punct}", " "));
-        /*datos.add(getText(fechaEntrada).toLowerCase());
-        datos.add(getText(fechaSalida).toLowerCase());*/
 
         String cantHab = getText(cantidadHabitaciones).toLowerCase();
 

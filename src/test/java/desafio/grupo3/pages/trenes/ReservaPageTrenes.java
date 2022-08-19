@@ -3,7 +3,6 @@ package desafio.grupo3.pages.trenes;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class ReservaPageTrenes extends SeleniumWrapper
@@ -24,7 +23,6 @@ public class ReservaPageTrenes extends SeleniumWrapper
     By telefonoErrorReservaLocator = By.xpath("(//label [@for='phone'])[2]");
 
     By srViajaLocator = By.id("radio-groups.1.travellers.1.title-MALE-label");
-    By sraViajaLocator = By.id("radio-groups.1.travellers.1.title-FEMALE-label");
     By srErrorViajaLocator = By.xpath("(//label [@for='groups.1.travellers.1.title'])[2]");
     By nombreViajaLocator = By.name("groups.1.travellers.1.name");
     By nombreErrorViajaLocator = By.xpath("(//label [@for='groups.1.travellers.1.name'])[2]");
@@ -59,10 +57,6 @@ public class ReservaPageTrenes extends SeleniumWrapper
     public void seleccionSr()
     {
         click(srViajaLocator);
-    }
-    public void seleccionSra()
-    {
-        click(sraViajaLocator);
     }
     public void ingresarNombreViaje(String nombre)
     {

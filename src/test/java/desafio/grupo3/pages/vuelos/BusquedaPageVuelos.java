@@ -1,14 +1,10 @@
 package desafio.grupo3.pages.vuelos;
 
-import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 import java.util.ArrayList;
 
 public class BusquedaPageVuelos extends SeleniumWrapper {
@@ -22,13 +18,8 @@ public class BusquedaPageVuelos extends SeleniumWrapper {
     By abrevCiudadDestinoLocator = By.className("search-summary__arrival-place-code");
     By fechaIdaLocator = By.xpath("//div[@class='search-summary__date']/div[1]");
     By fechaVueltaLocator = By.xpath("//div[@class='search-summary__date']/div[3]");
-    //By claseLocator = By.xpath("//div[@class='search-summary__class']/span");
 
     By btnModificarLocator = By.className("search-summary__search");
-    By inputOrigenLocator = By.id("input-k016t");
-    By inputDestinoLocator = By.id("input-3ndtn");
-    //By calendarioFechaIdaLocator = By.xpath("//div[@data-test='lmn-sw-cal-outbound']/div"); // No van
-    //By calendarioFechaVueltaLocator = By.xpath("//div[@data-test='lmn-sw-cal-inbound']/div");
     By desplegablePasajeroLocator = By.xpath("//div[@class = 'lmn-sw-passengers']/div/div");
     By desplegableClaseLocator = By.className("select-selected");
 

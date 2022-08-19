@@ -3,7 +3,6 @@ package desafio.grupo3.pages.vuelos;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WindowType;
 
 public class MultidestinoPageVuelos extends SeleniumWrapper {
 

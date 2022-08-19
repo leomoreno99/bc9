@@ -21,24 +21,14 @@ public class HomePageHoteles extends SeleniumWrapper {
     By alojamientoLocator = By.id("mui-1");
     By primeraOpcionAlojamientoLocator = By.id("mui-1-option-0");
 
-    By btnCalendarioEntradaLocator = By.xpath("(//div [@class = 'display-pfh0xi']/button)[1]");
-    By btnCalendarioSalidaLocator = By.xpath("(//div [@class = 'display-pfh0xi']/button)[2]");
-    By btnDiaEntradaLocator = By.xpath("//div [@aria-labelledby = '7']/descendant::button[text()='22']");
-    By btnDiaSalidaLocator = By.xpath("//div [@aria-labelledby = '7']/descendant::button[text()='25']");
-
     //Locator Habitacion 1
     By habitacionLocator = By.xpath("//div [@class = 'display-1j5hrwi']");
-    By btnAdultoMenosLocarto = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[1]");
-    By btnAdultoMasLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[2]");
-    By btnNinosMenosLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[3]");
     By btnNinosMasLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[4]");
     By dropListEdadNinosLocator = By.xpath("//div[@class=\"display-1j5hrwi\"]/select");
     By btnAnadirHabitacionLocator = By.xpath("//div [@class = 'display-16gxy4x']/button");
 
     //Locator habitacion 2
-    By btnSegundaAdultoMenosLocarto = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[5]");
     By btnSegundaAdultoMasLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[6]");
-    By btnSegundaNinosMenosLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[7]");
     By btnSegundaNinosMasLocator = By.xpath("(//div [@class = 'display-ylvzma-Counter-styled']/button)[8]");
 
     By btnBuscarLocator = By.xpath("//div [@class = 'display-1jqt24b']/button");

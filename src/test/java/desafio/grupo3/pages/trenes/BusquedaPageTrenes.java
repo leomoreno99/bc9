@@ -56,13 +56,11 @@ public class BusquedaPageTrenes extends SeleniumWrapper
         Guardar = (Guardar*2);
         return By.xpath("(//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div)["+Guardar+"]");
     }
-    By ordenMejorLocator = By.xpath("(//li [@data-value = 'best_trip.asc'])[2]");
     By ordenBaratoLocator = By.xpath("(//li [@data-value = 'price.asc'])[2]");
     By ordenRapidoLocator = By.xpath("(//li [@data-value = 'duration.asc'])[2]");
     By primerPreciosLocator = By.xpath("(//span [@class = 'TripCardPrice__FinalPrice-sc-1d8mdrx-5 rCnqw Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM'])[1]");
     By primerHorasLocator = By.xpath("(//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div)[1]");
     By segundoHorasLocator = By.xpath("(//span [@class = 'Tooltip___StyledMuiTooltip-sc-ya8k7d-3 jAgUJM']/parent::div)[2]");
-    //By btnVerMasResultadosLocator = By.xpath("//button [@type='button' and contains(text(),'Ver más resultados')]");
     By totalLocator = By.xpath("(//span [@class ='total-results-text']/strong)[1]");
     By resultTotalLocator = By.xpath("(//span [@class ='total-results-text']/strong)[2]");
 
@@ -78,17 +76,11 @@ public class BusquedaPageTrenes extends SeleniumWrapper
     By desplegableOrigenLocator = By.xpath("//div[text() = 'Origen']");
 
     By btnMasAdultoLocator = By.xpath("(//div[@data-type = 'adults']/descendant::div[3])[1]");
-    //By btnMenosAdultoLocator = By.xpath("(//div[@data-type = 'adults']/descendant::div[1])[1]");
     By btnMasNinosLocator = By.xpath("(//div[@data-type = 'children']/descendant::div[3])[1]");
-    //By btnMenosNinosLocator = By.xpath("(//div[@data-type = 'children']/descendant::div[1])[1]");
     By btnBuscarLocator = By.xpath("//div[@data-test = 'lmn-sw-search-train']");
 
     //Metodos
 
-    public void ordenMejor()
-    {
-        click(ordenMejorLocator);
-    }
     public void ordenBarato()
     {
         click(ordenBaratoLocator);

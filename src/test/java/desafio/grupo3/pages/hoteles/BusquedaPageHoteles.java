@@ -4,10 +4,7 @@ import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
-
-import java.time.Duration;
 import java.util.List;
-import java.util.function.Function;
 
 public class BusquedaPageHoteles extends SeleniumWrapper
 {
@@ -20,7 +17,6 @@ public class BusquedaPageHoteles extends SeleniumWrapper
 
     By btnTodosFiltrosLocator = By.xpath("//div [@class = 'styled__AllFiltersStyled-sc-1o4ryub-0 elBqKB active']");
     By btnCerrarTodosFiltrosLocator = By.xpath("//div [@class = 'styled__ModalFrameClose-sc-12zjd5z-1 hDaoLJ']");
-    By btnEliminarTodosFiltrosLocator = By.xpath("//button [@class = 'styled__ResetOnTop-sc-18vcrz8-2 gQgRoD']");
     By mascotaLocator = By.xpath("//span[text()='Mascotas']");
     By spanMascota = By.xpath("//li[@class=\"AmenitiesSummary___StyledLi-sc-4545v1-2 zmHdy\"]/span");
     By btnAplicarLocator = By.xpath("//button [@class = 'styled__ApplyStyled-sc-18vcrz8-4 cHQYkF']");
@@ -34,8 +30,6 @@ public class BusquedaPageHoteles extends SeleniumWrapper
     By pinMapaLocator = By.xpath("//div[@class='mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate']/div[1]");
     By mapaLocator = By.xpath("//canvas[@aria-label='Map']");
     By checkBuscarMapaLocator = By.xpath("//div[text()='Buscar al mover el mapa']");
-
-    By nochesHotelLocator = By.xpath("(//span[@class='styled__FeatureText-sc-bdv6j3-1 bovErw'])[1]");
 
     public boolean todosLosFiltros() throws InterruptedException {
         Thread.sleep(4000);
@@ -53,7 +47,6 @@ public class BusquedaPageHoteles extends SeleniumWrapper
         click(btnTodosFiltrosLocator);
         js.executeScript("arguments[0].scrollIntoView();", findElement(mascotaLocator));
         click(mascotaLocator);
-        //presionarMoverYSoltarG3(mascotaLocator,0,0);
         click(btnAplicarLocator);
         Thread.sleep(4000);
         seleccionarPrimero();

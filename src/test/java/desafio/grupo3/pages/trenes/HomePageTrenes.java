@@ -1,17 +1,11 @@
 package desafio.grupo3.pages.trenes;
 
-import com.beust.jcommander.Parameter;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -46,19 +40,11 @@ public class HomePageTrenes extends SeleniumWrapper
     By errorOrigenLocator = By.xpath("(//div [@class='validation-error']/div)[1]");
     By errorDestinoLocator = By.xpath("(//div [@class='validation-error']/div)[2]");
     By btnHorarioMananaIdaLocator = By.xpath("(//div [@data-time='05-09'])[2]");
-    By btnHorarioMedioDiaIdaLocator = By.xpath("(//div [@data-time='10-12'])[2]");
     By btnHorarioTardeIdaLocator = By.xpath("(//div [@data-time='13-17'])[2]");
-    By btnHorarioTardeNocheIdaLocator = By.xpath("(//div [@data-time='18-22'])[2]");
-
-    By btnHorarioMananaVueltaLocator = By.xpath("(//div [@data-time='05-09'])[1]");
-    By btnHorarioMedioDiaVueltaLocator = By.xpath("(//div [@data-time='10-12'])[1]");
-    By btnHorarioTardeVueltaLocator = By.xpath("(//div [@data-time='13-17'])[1]");
     By btnHorarioTardeNocheVueltaLocator = By.xpath("(//div [@data-time='18-22'])[1]");
 
     By btnMasAdultoLocator = By.xpath("(//div[@data-type = 'adults']/descendant::div[3])[1]");
-    //By btnMenosAdultoLocator = By.xpath("(//div[@data-type = 'adults']/descendant::div[1])[1]");
     By btnMasNinosLocator = By.xpath("(//div[@data-type = 'children']/descendant::div[3])[1]");
-   // By btnMenosNinosLocator = By.xpath("(//div[@data-type = 'children']/descendant::div[1])[1]");
 
     By btnBuscarLocator = By.xpath("//div[@data-test = 'lmn-sw-search-train']");
 
@@ -97,29 +83,9 @@ public class HomePageTrenes extends SeleniumWrapper
     {
         click(btnHorarioMananaIdaLocator);
     }
-    public void horarioMananaVuelta()
-    {
-        click(btnHorarioMananaVueltaLocator);
-    }
-    public void horarioMedioDíaIda()
-    {
-        click(btnHorarioMedioDiaIdaLocator);
-    }
-    public void horarioMedioDíaVuelta()
-    {
-        click(btnHorarioMedioDiaVueltaLocator);
-    }
     public void horarioTardeIda()
     {
         click(btnHorarioTardeIdaLocator);
-    }
-    public void horarioTardeVuelta()
-    {
-        click(btnHorarioTardeVueltaLocator);
-    }
-    public void horarioTardeNocheIda()
-    {
-        click(btnHorarioTardeNocheIdaLocator);
     }
     public void horarioTardeNocheVuelta()
     {
@@ -170,17 +136,6 @@ public class HomePageTrenes extends SeleniumWrapper
         fechaDeIda(diaIda,mesIda);
         horarioTardeNocheVuelta();
         fechaDeVuelta(diaVuelta,mesVuelta);
-        anadirAdulto(numAdult);
-        anadirANino(numNinos);
-        buscar();
-    }
-    public void BusquedaSoloIda(String origen,String destino, int diaIda,int mesIda,int numAdult, int numNinos){
-
-        soloIda();
-        ingresarOrigen(origen);
-        ingresarDestino(destino);
-        horarioTardeIda();
-        fechaDeIda(diaIda,mesIda);
         anadirAdulto(numAdult);
         anadirANino(numNinos);
         buscar();

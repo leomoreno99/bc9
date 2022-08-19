@@ -11,15 +11,9 @@ public class ElegirPlanPageVuelos extends SeleniumWrapper {
     }
 
     //Locators
-    By btnElegirClassicLocator = By.xpath("//div[text()='Elegir Classic']");
     By btnElegirFlexibleLocator = By.xpath("//div[text()='Elegir Flexible']");
 
     public void eligeFlex(){
         click(btnElegirFlexibleLocator);
     }
-    public void eligeClassic(){
-        click(btnElegirClassicLocator);
-    }
-
-
 }

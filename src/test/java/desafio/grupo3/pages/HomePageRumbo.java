@@ -14,9 +14,9 @@ public class HomePageRumbo extends SeleniumWrapper {
     //Locators
     By btnAceptarCookies = By.xpath("//button[@data-qa='oil-YesButton']");
 
-    By btnVuelosLocator =By.xpath("(//a[@title='Vuelos'])[1]");
-    By btnHotelesLocator =By.xpath("(//a[@title='Hoteles'])[1]");
-    By btnTrenesLocator =By.xpath("(//a[@title='Trenes'])[1]");
+    By btnVuelosLocator = By.xpath("(//a[@title='Vuelos'])[1]");
+    By btnHotelesLocator = By.xpath("(//a[@title='Hoteles'])[1]");
+    By btnTrenesLocator = By.xpath("(//a[@title='Trenes'])[1]");
 
     By btnResponsiveLocator = By.xpath("(//div[@class='display-5dfhaz-HubNavigationCta-styled ecnhbug0'])[4]");
 

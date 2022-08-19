@@ -15,14 +15,8 @@ public class ReservaPageVuelos extends SeleniumWrapper {
 
     By fechaViajeIdaLocator = By.xpath("(//div[@class='JourneyDetailsWayIntro__WayIntroDate-sc-7wt6gl-2 bGnXnx'])[1]");
     By fechaViajeVueltaLocator = By.xpath("(//div[@class='JourneyDetailsWayIntro__WayIntroDate-sc-7wt6gl-2 bGnXnx'])[2]");
-    By horaViajeIdaLocator = By.xpath("(//div[@class='JourneyDetailsSegment__StyledHour-sc-1eo687l-10 dppCAB'])[1]");
-    By horaViajeVueltaLocator = By.xpath("(//div[@class='JourneyDetailsSegment__StyledHour-sc-1eo687l-10 dppCAB'])[3]");
     By ciudadesDesdeHaciaIdaLocator = By.xpath("(//div[@class='JourneyDetailsWayIntro__WayIntroSmallText-sc-7wt6gl-3 goNwye'])[1]");
     By ciudadesDesdeHaciaVueltaLocator = By.xpath("(//div[@class='JourneyDetailsWayIntro__WayIntroSmallText-sc-7wt6gl-3 goNwye'])[3]");
-    By aeropuertoDesdeIdaLocator = By.xpath("(//div[@class='JourneyDetailsSegment__MediumText-sc-1eo687l-6 jHESWa'])[1]");
-    By aeropuertoHaciaIdaLocator = By.xpath("(//div[@class='JourneyDetailsSegment__MediumText-sc-1eo687l-6 jHESWa'])[2]");
-    By aeropuertoDesdeVueltaLocator = By.xpath("(//div[@class='JourneyDetailsSegment__MediumText-sc-1eo687l-6 jHESWa'])[3]");
-    By aeropuertoHaciaVueltaLocator = By.xpath("(//div[@class='JourneyDetailsSegment__MediumText-sc-1eo687l-6 jHESWa'])[4]");
     By duracionVueloIdaLocator = By.xpath("(//div[@class='JourneyDetailsWayIntro__WayIntroSmallText-sc-7wt6gl-3 goNwye'])[2]/span[2]");
     By duracionVueloVueltaLocator = By.xpath("(//div[@class='JourneyDetailsWayIntro__WayIntroSmallText-sc-7wt6gl-3 goNwye'])[4]/span[2]");
     By claseIdaLocator = By.xpath("(//div[@class='JourneyDetailsSegment__ProviderInfo-sc-1eo687l-12 hYszni'])[1]/div[4]");
