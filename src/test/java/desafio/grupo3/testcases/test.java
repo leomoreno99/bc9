@@ -21,15 +21,6 @@ public class test extends SeleniumTestBase
         homePageTrenes = new HomePageTrenes(DriverFactory.getDriver());
         Assertions.assertEquals("Selecciona ciudad de origen y Selecciona ciudad de destino",homePageTrenes.entregaError());
     }
-    /*@Test
-    void PruebaReserva()
-    {
-        reservaPageTrenes = new ReservaPageTrenes(DriverFactory.getDriver());
-        System.out.println(reservaPageTrenes.ValidacionErrorReserva());
-        System.out.println(reservaPageTrenes.ValidacionErrorViaja());
-        reservaPageTrenes.ValidacionCamposReserva("Brandon","Muñoz","brandon.munoz@gamil.cl","975786172");
-        reservaPageTrenes.ValidacionCamposViaja("Brandon","Muñoz","3","9","2022");
-    }*/
     @Test
     void PruebaPrecio() {
         busquedaPageTrenes = new BusquedaPageTrenes(DriverFactory.getDriver());
