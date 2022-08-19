@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class ReservaHotelPage extends SeleniumWrapper {
     public ReservaHotelPage(WebDriver driver) {super(driver);}
     By btnReserva = By.xpath("//button[contains(text(),\"Elegir tipo de alojamiento\")]");
-    By btnPrimerDisponible = By.xpath("//*[@id=\"rooms\"]/descendant::button[contains(text(),\"Continuar”)][1]");
+    By btnPrimerDisponible = By.xpath("/html/body/div[2]/div[4]/section[1]/div[2]/div/div/div/div/div[2]/div/div/div/div/div[2]/button");
 
     //Resumen datos
     By hotelLocator = By.xpath("//*[@id=\"sticky-summary__body\"]/div[1]/div/div/div/div/div[2]/span[1]");
@@ -20,8 +20,10 @@ public class ReservaHotelPage extends SeleniumWrapper {
     By cantidadPersonas = By.xpath("//*[@id=\"sticky-summary__body\"]/div[1]/div/div/div/div/div[4]/div[2]");
     By precioTotalLocator = By.xpath("//*[@id=\"total-price\"]/div/div/div/span[2]/span");
 
-    public void elegiralojamiento(){
+    public void elegiralojamiento() throws InterruptedException {
         click(btnReserva);
         click(btnPrimerDisponible);
+        Thread.sleep(6000);
+
     }
 }
