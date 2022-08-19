@@ -6,6 +6,7 @@ import desafio.grupo3.pages.hoteles.HomePageHoteles;
 import desafio.grupo3.pages.hoteles.ReservaHotelPage;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -34,12 +35,10 @@ public class Atc05 extends SeleniumTestBase {
         homePageHoteles.buscar();
         busquedaPageHoteles = new BusquedaPageHoteles(DriverFactory.getDriver());
         busquedaPageHoteles.seleccionarPrimero();
-        ArrayList<String> tabs = busquedaPageHoteles.getTabsG3();
-        busquedaPageHoteles.switchToG3(tabs.get(tabs.size()-1));
+        busquedaPageHoteles.cambiarTab();
         reservaHotelPage = new ReservaHotelPage(DriverFactory.getDriver());
-        reservaHotelPage.elegiralojamiento();
 
-
+        Assertions.assertEquals(9, reservaHotelPage.elegiralojamiento());
 
     }
 

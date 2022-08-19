@@ -35,6 +35,8 @@ public class BusquedaPageHoteles extends SeleniumWrapper
     By mapaLocator = By.xpath("//canvas[@aria-label='Map']");
     By checkBuscarMapaLocator = By.xpath("//div[text()='Buscar al mover el mapa']");
 
+    By nochesHotelLocator = By.xpath("(//span[@class='styled__FeatureText-sc-bdv6j3-1 bovErw'])[1]");
+
     public boolean todosLosFiltros() throws InterruptedException {
         Thread.sleep(4000);
         click(btnTodosFiltrosLocator);
