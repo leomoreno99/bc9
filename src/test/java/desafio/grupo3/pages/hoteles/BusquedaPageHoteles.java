@@ -54,6 +54,11 @@ public class BusquedaPageHoteles extends SeleniumWrapper
         //presionarMoverYSoltarG3(mascotaLocator,0,0);
         click(btnAplicarLocator);
         Thread.sleep(4000);
+        seleccionarPrimero();
+    }
+
+    public void seleccionarPrimero() throws InterruptedException {
+        Thread.sleep(3000);
         click(ingresarPrimeraHotelLocator);
     }
     public boolean corroborarMascotas(){
